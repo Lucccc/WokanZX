@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FourthViewController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="r4E-YV-hVR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS9-dM-wDY" userLabel="分割线shang">
+                    <rect key="frame" x="20" y="300" width="335" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="vud-eV-4Vr"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A06-JZ-zKH" userLabel="分割线">
+                    <rect key="frame" x="20" y="349" width="335" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="cgO-Fp-EL0"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本更新" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDp-oM-vZp">
+                    <rect key="frame" x="30" y="316" width="80" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="xfm-fn-hmb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NM-aJ-2eC">
+                    <rect key="frame" x="324" y="311" width="21" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="JRq-4x-4SA"/>
+                        <constraint firstAttribute="width" constant="21" id="VMj-yx-3d4"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="about_update_btn"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="JRq-4x-4SA"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="updateSoft:" destination="-1" eventType="touchUpInside" id="j48-nf-l4s"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_pic" translatesAutoresizingMaskIntoConstraints="NO" id="rse-DP-Rgo">
+                    <rect key="frame" x="102" y="144" width="170" height="116"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="vJe-4T-Mat"/>
+                        <constraint firstAttribute="height" constant="116" id="wfE-lH-7SC"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="A06-JZ-zKH" firstAttribute="top" secondItem="bDp-oM-vZp" secondAttribute="bottom" constant="15" id="72b-SY-aCT"/>
+                <constraint firstItem="A06-JZ-zKH" firstAttribute="top" secondItem="3NM-aJ-2eC" secondAttribute="bottom" constant="10" id="Adp-0y-ILW"/>
+                <constraint firstItem="A06-JZ-zKH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="EQ3-Ci-bvS"/>
+                <constraint firstItem="rse-DP-Rgo" firstAttribute="centerX" secondItem="AS9-dM-wDY" secondAttribute="centerX" id="GYJ-Yl-XWf"/>
+                <constraint firstItem="AS9-dM-wDY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="GvG-Br-HUb"/>
+                <constraint firstAttribute="trailing" secondItem="3NM-aJ-2eC" secondAttribute="trailing" constant="30" id="Pqi-Lr-bXs"/>
+                <constraint firstAttribute="trailing" secondItem="AS9-dM-wDY" secondAttribute="trailing" constant="20" id="TUy-iA-a97"/>
+                <constraint firstAttribute="trailing" secondItem="A06-JZ-zKH" secondAttribute="trailing" constant="20" id="apW-dR-QUb"/>
+                <constraint firstItem="bDp-oM-vZp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="dT5-bk-urP"/>
+                <constraint firstItem="3NM-aJ-2eC" firstAttribute="top" secondItem="AS9-dM-wDY" secondAttribute="bottom" constant="10" id="dzb-K6-q4m"/>
+                <constraint firstItem="A06-JZ-zKH" firstAttribute="top" secondItem="AS9-dM-wDY" secondAttribute="bottom" constant="48" id="gHH-0u-IPV"/>
+                <constraint firstItem="bDp-oM-vZp" firstAttribute="top" secondItem="AS9-dM-wDY" secondAttribute="bottom" constant="15" id="jz1-iO-ISf"/>
+                <constraint firstItem="AS9-dM-wDY" firstAttribute="top" secondItem="rse-DP-Rgo" secondAttribute="bottom" constant="40" id="nbZ-W1-aHY"/>
+                <constraint firstItem="AS9-dM-wDY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="300" id="okF-Z9-YdZ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="about_pic" width="79" height="52"/>
+        <image name="about_update_btn" width="14" height="14"/>
+    </resources>
+</document>

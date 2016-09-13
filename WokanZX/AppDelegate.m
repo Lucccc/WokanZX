@@ -7,6 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
+#import "LeftMenuViewController.h"
+#import "LaunchViewController.h"
+
+
+
+
 
 @interface AppDelegate ()
 
@@ -15,9 +22,34 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    return YES;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    LaunchViewController *lacVC = [[LaunchViewController alloc]init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:lacVC];
+    navigationController.navigationBar.hidden = YES;
+    self.window.rootViewController = navigationController;
+    
+    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+//    LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
+//  
+//    
+//    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+//    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+//    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+//    
+//    sideMenuViewController.delegate = self;
+//    //sideMenuViewController.tempViewController = rightMenuViewController;
+//    //sideMenuViewController.tempViewController = nil;
+//    self.window.rootViewController = sideMenuViewController;
+//    
+//    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+  
+        return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
