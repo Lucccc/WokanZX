@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 1.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];

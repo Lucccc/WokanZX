@@ -35,7 +35,7 @@
     [super viewDidLoad];
     
    
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     _backImgV =[UIImageView addImgWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) AndImage:@"ditu"];
     [self.view addSubview:_backImgV];
     _backImgV.userInteractionEnabled = YES;

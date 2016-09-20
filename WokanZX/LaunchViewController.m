@@ -9,6 +9,8 @@
 #import "LaunchViewController.h"
 #import "ZLScrolling.h"
 
+
+
 @interface LaunchViewController ()<ZLScrollingDelegate>
 
 @end
@@ -41,8 +43,8 @@
      *  本地方式获取图片
      */
     UIImageView *imageView = [UIImageView addImgWithFrame:CGRectMake(SCREEN_WIDTH/2 -80, SCREEN_HEIGHT/4, 157, 118) AndImage:@"login_pic"];
-     UIButton *regBtn =[UIButton addBtnImage:@"圆角矩形-4" AndFrame:CGRectMake(30*Width, 450*Height, 100*Width, 36*Height) WithTarget:self action:@selector(registAccountButton)];
-    UIButton *loginBtn =[UIButton addBtnImage:@"圆角矩形-4" AndFrame:CGRectMake(100*Width-80+SCREEN_WIDTH/2, 450*Height, 100*Width, 36*Height) WithTarget:self action:@selector(loginAccountButton)];
+     UIButton *regBtn =[UIButton addBtnImage:@"注册" AndFrame:CGRectMake(30*Width, 450*Height, 100*Width, 36*Height) WithTarget:self action:@selector(registAccountButton)];
+    UIButton *loginBtn =[UIButton addBtnImage:@"登录" AndFrame:CGRectMake(100*Width-80+SCREEN_WIDTH/2, 450*Height, 100*Width, 36*Height) WithTarget:self action:@selector(loginAccountButton)];
 
     NSArray *array = @[@"home_1",@"home_2",@"home_3",@"home_4"];
 
@@ -58,8 +60,10 @@
 
 -(void)registAccountButton{
     NSLog(@"zhuce");
-    RegisterVCNew *VC = [[RegisterVCNew alloc]init];
-    VC.view.backgroundColor = [UIColor redColor];
+    RegisterVC *VC = [[RegisterVC alloc]init];
+    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = bbt;
+    //VC.view.backgroundColor = [UIColor redColor];
     UINavigationController *regNav = [[UINavigationController alloc]initWithRootViewController:VC];
     regNav.title = @"注册";
     self.navigationController.navigationBar.hidden = NO;
@@ -69,7 +73,9 @@
 
 - (void)loginAccountButton{
     NSLog(@"denglu");
-    LoginVCNew *aaa = [[LoginVCNew alloc]init];
+    LoginVC *aaa = [[LoginVC alloc]init];
+    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = bbt;
     UINavigationController *loginNav = [[UINavigationController alloc]initWithRootViewController:aaa];
     loginNav.title = @"登录";
     self.navigationController.navigationBar.hidden = NO;

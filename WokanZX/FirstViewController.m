@@ -33,8 +33,8 @@
     
     
    
-    self.view.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"playback_click_left_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.view.backgroundColor = FaColor;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imageView.contentMode = UIViewContentModeScaleAspectFill;

@@ -13,7 +13,19 @@
 		18226CC41D7EB4A600234092 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC31D7EB4A600234092 /* ThirdViewController.m */; };
 		18226CC71D7EC86E00234092 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC61D7EC86E00234092 /* FourthViewController.m */; };
 		18226CC91D7ED55E00234092 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18226CC81D7ED55E00234092 /* FirstViewController.xib */; };
+		186324FA1D8FE0D800BDA274 /* LXDScanCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186324F71D8FE0D800BDA274 /* LXDScanCodeController.m */; };
+		186324FB1D8FE0D800BDA274 /* LXDScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186324F91D8FE0D800BDA274 /* LXDScanView.m */; };
+		186324FF1D9019E400BDA274 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186324FD1D9019E400BDA274 /* LoginVC.m */; };
+		186325001D9019E400BDA274 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186324FE1D9019E400BDA274 /* LoginVC.xib */; };
+		186325041D9019FA00BDA274 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186325021D9019FA00BDA274 /* RegisterVC.m */; };
+		186325051D9019FA00BDA274 /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186325031D9019FA00BDA274 /* RegisterVC.xib */; };
+		186325091D901A1700BDA274 /* ForgetPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 186325071D901A1700BDA274 /* ForgetPwdVC.m */; };
+		1863250A1D901A1700BDA274 /* ForgetPwdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186325081D901A1700BDA274 /* ForgetPwdVC.xib */; };
 		188B8B5B1D884F0200A45DC1 /* GLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B8B5A1D884F0200A45DC1 /* GLButton.m */; };
+		188F2F3B1D8EA35700F17DC7 /* GLWhiteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 188F2F3A1D8EA35700F17DC7 /* GLWhiteButton.m */; };
+		188F2F3E1D8EA81F00F17DC7 /* GLtextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 188F2F3D1D8EA81F00F17DC7 /* GLtextField.m */; };
+		18911A5A1D8E764A00643CEE /* AddCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18911A581D8E764A00643CEE /* AddCameraViewController.m */; };
+		18911A5B1D8E764A00643CEE /* AddCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18911A591D8E764A00643CEE /* AddCameraViewController.xib */; };
 		18C80A381D7F0A7000867E39 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A371D7F0A7000867E39 /* SecondViewController.xib */; };
 		18C80A3A1D7F112B00867E39 /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A391D7F112B00867E39 /* FourthViewController.xib */; };
 		18C80A3C1D7F115900867E39 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A3B1D7F115900867E39 /* ThirdViewController.xib */; };
@@ -67,8 +79,28 @@
 		18226CC51D7EC86E00234092 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		18226CC61D7EC86E00234092 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		18226CC81D7ED55E00234092 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		186324F61D8FE0D800BDA274 /* LXDScanCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDScanCodeController.h; sourceTree = "<group>"; };
+		186324F71D8FE0D800BDA274 /* LXDScanCodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDScanCodeController.m; sourceTree = "<group>"; };
+		186324F81D8FE0D800BDA274 /* LXDScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDScanView.h; sourceTree = "<group>"; };
+		186324F91D8FE0D800BDA274 /* LXDScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDScanView.m; sourceTree = "<group>"; };
+		186324FC1D9019E400BDA274 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		186324FD1D9019E400BDA274 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		186324FE1D9019E400BDA274 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		186325011D9019FA00BDA274 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		186325021D9019FA00BDA274 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		186325031D9019FA00BDA274 /* RegisterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
+		186325061D901A1700BDA274 /* ForgetPwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdVC.h; sourceTree = "<group>"; };
+		186325071D901A1700BDA274 /* ForgetPwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdVC.m; sourceTree = "<group>"; };
+		186325081D901A1700BDA274 /* ForgetPwdVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPwdVC.xib; sourceTree = "<group>"; };
 		188B8B591D884F0200A45DC1 /* GLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLButton.h; sourceTree = "<group>"; };
 		188B8B5A1D884F0200A45DC1 /* GLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLButton.m; sourceTree = "<group>"; };
+		188F2F391D8EA35700F17DC7 /* GLWhiteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWhiteButton.h; sourceTree = "<group>"; };
+		188F2F3A1D8EA35700F17DC7 /* GLWhiteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWhiteButton.m; sourceTree = "<group>"; };
+		188F2F3C1D8EA81F00F17DC7 /* GLtextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLtextField.h; sourceTree = "<group>"; };
+		188F2F3D1D8EA81F00F17DC7 /* GLtextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLtextField.m; sourceTree = "<group>"; };
+		18911A571D8E764A00643CEE /* AddCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCameraViewController.h; sourceTree = "<group>"; };
+		18911A581D8E764A00643CEE /* AddCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCameraViewController.m; sourceTree = "<group>"; };
+		18911A591D8E764A00643CEE /* AddCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCameraViewController.xib; sourceTree = "<group>"; };
 		18C80A371D7F0A7000867E39 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		18C80A391D7F112B00867E39 /* FourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
 		18C80A3B1D7F115900867E39 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
@@ -144,6 +176,10 @@
 			children = (
 				188B8B591D884F0200A45DC1 /* GLButton.h */,
 				188B8B5A1D884F0200A45DC1 /* GLButton.m */,
+				188F2F391D8EA35700F17DC7 /* GLWhiteButton.h */,
+				188F2F3A1D8EA35700F17DC7 /* GLWhiteButton.m */,
+				188F2F3C1D8EA81F00F17DC7 /* GLtextField.h */,
+				188F2F3D1D8EA81F00F17DC7 /* GLtextField.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -197,6 +233,20 @@
 			name = about;
 			sourceTree = "<group>";
 		};
+		18911A561D8E761700643CEE /* addcamera */ = {
+			isa = PBXGroup;
+			children = (
+				186324F61D8FE0D800BDA274 /* LXDScanCodeController.h */,
+				186324F71D8FE0D800BDA274 /* LXDScanCodeController.m */,
+				186324F81D8FE0D800BDA274 /* LXDScanView.h */,
+				186324F91D8FE0D800BDA274 /* LXDScanView.m */,
+				18911A571D8E764A00643CEE /* AddCameraViewController.h */,
+				18911A581D8E764A00643CEE /* AddCameraViewController.m */,
+				18911A591D8E764A00643CEE /* AddCameraViewController.xib */,
+			);
+			name = addcamera;
+			sourceTree = "<group>";
+		};
 		18DCBCA31D7E828F0065A7EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +261,7 @@
 		18DDA16E1D85AE7000066A7D /* main */ = {
 			isa = PBXGroup;
 			children = (
+				18911A561D8E761700643CEE /* addcamera */,
 				188B8B601D885F6400A45DC1 /* about */,
 				188B8B5F1D885F4600A45DC1 /* review */,
 				188B8B5E1D885F1800A45DC1 /* qxSetting */,
@@ -254,6 +305,15 @@
 				18DDA1FF1D85BEAF00066A7D /* LoginVCNew.m */,
 				18DDA2001D85BEAF00066A7D /* RegisterVCNew.h */,
 				18DDA2011D85BEAF00066A7D /* RegisterVCNew.m */,
+				186324FC1D9019E400BDA274 /* LoginVC.h */,
+				186324FD1D9019E400BDA274 /* LoginVC.m */,
+				186324FE1D9019E400BDA274 /* LoginVC.xib */,
+				186325011D9019FA00BDA274 /* RegisterVC.h */,
+				186325021D9019FA00BDA274 /* RegisterVC.m */,
+				186325031D9019FA00BDA274 /* RegisterVC.xib */,
+				186325061D901A1700BDA274 /* ForgetPwdVC.h */,
+				186325071D901A1700BDA274 /* ForgetPwdVC.m */,
+				186325081D901A1700BDA274 /* ForgetPwdVC.xib */,
 			);
 			path = "Login(登录)";
 			sourceTree = "<group>";
@@ -431,6 +491,7 @@
 				TargetAttributes = {
 					18EF73BF1D7DBCB200115966 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FZ23HPHX7F;
 					};
 					18EF73D81D7DBCB200115966 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -469,11 +530,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186325001D9019E400BDA274 /* LoginVC.xib in Resources */,
 				18C80A3C1D7F115900867E39 /* ThirdViewController.xib in Resources */,
 				18EF73D01D7DBCB200115966 /* Assets.xcassets in Resources */,
 				18226CC91D7ED55E00234092 /* FirstViewController.xib in Resources */,
+				1863250A1D901A1700BDA274 /* ForgetPwdVC.xib in Resources */,
 				18C80A3A1D7F112B00867E39 /* FourthViewController.xib in Resources */,
+				186325051D9019FA00BDA274 /* RegisterVC.xib in Resources */,
 				18C80A381D7F0A7000867E39 /* SecondViewController.xib in Resources */,
+				18911A5B1D8E764A00643CEE /* AddCameraViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,20 +617,28 @@
 				18EF73C81D7DBCB200115966 /* AppDelegate.m in Sources */,
 				18226CC41D7EB4A600234092 /* ThirdViewController.m in Sources */,
 				18DDA20F1D85BEAF00066A7D /* SHInvoker.m in Sources */,
+				186324FA1D8FE0D800BDA274 /* LXDScanCodeController.m in Sources */,
 				18DDA20E1D85BEAF00066A7D /* FormValidator.m in Sources */,
 				18DDA20D1D85BEAF00066A7D /* RegisterVCNew.m in Sources */,
 				18226CB81D7E8CA400234092 /* FirstViewController.m in Sources */,
 				18DDA2081D85BEAF00066A7D /* UIImageView+Extension.m in Sources */,
+				188F2F3E1D8EA81F00F17DC7 /* GLtextField.m in Sources */,
 				18DDA20A1D85BEAF00066A7D /* UITextField+Extension.m in Sources */,
 				18226CBE1D7E8CF500234092 /* LeftMenuViewController.m in Sources */,
+				186324FF1D9019E400BDA274 /* LoginVC.m in Sources */,
+				186325041D9019FA00BDA274 /* RegisterVC.m in Sources */,
 				188B8B5B1D884F0200A45DC1 /* GLButton.m in Sources */,
 				18DDA2141D85C9F000066A7D /* LaunchViewController.m in Sources */,
+				188F2F3B1D8EA35700F17DC7 /* GLWhiteButton.m in Sources */,
 				18226CC71D7EC86E00234092 /* FourthViewController.m in Sources */,
 				18EF73C51D7DBCB200115966 /* main.m in Sources */,
 				18DDA20B1D85BEAF00066A7D /* ForgetPassWordVCNew.m in Sources */,
+				186324FB1D8FE0D800BDA274 /* LXDScanView.m in Sources */,
+				18911A5A1D8E764A00643CEE /* AddCameraViewController.m in Sources */,
 				18DDA2071D85BEAF00066A7D /* UIButton+Extension.m in Sources */,
 				18DDA16C1D855E7A00066A7D /* HomeViewController.m in Sources */,
 				18DDA2091D85BEAF00066A7D /* UILabel+Extension.m in Sources */,
+				186325091D901A1700BDA274 /* ForgetPwdVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WokanZX/PrefixHeader.pch;
@@ -696,6 +770,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = luc.WokanZX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -705,6 +780,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WokanZX/PrefixHeader.pch;
@@ -712,6 +788,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = luc.WokanZX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

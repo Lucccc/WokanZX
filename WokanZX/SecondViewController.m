@@ -28,7 +28,7 @@
 
    
     //self.view.backgroundColor = [UIColor orangeColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"playback_click_left_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     //设置segment属性
     NSUserDefaults *mySettingDatar = [NSUserDefaults standardUserDefaults];

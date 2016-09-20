@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "LeftMenuViewController.h"
 #import "LaunchViewController.h"
+#import "IQKeyboardManager.h"
 
 
 
@@ -24,6 +25,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //键盘自适应iqkeyboard
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = NO;
+    
+    
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

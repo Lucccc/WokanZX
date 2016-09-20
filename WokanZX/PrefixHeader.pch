@@ -15,8 +15,8 @@
 #import "UILabel+Extension.h"
 #import "UIButton+Extension.h"
 #import "UIImageView+Extension.h"
-#import "LoginVCNew.h"
-#import "RegisterVCNew.h"
+#import "LoginVC.h"
+#import "RegisterVC.h"
 #import "ForgetPassWordVCNew.h"
 #import "AFNetworking.h"
 #import "FormValidator.h"
@@ -27,6 +27,7 @@
 #define failTipe @"网络开小差了，稍后试试吧"
 
 #define BColor [UIColor colorWithRed:0/255.0 green:173/255.0 blue:228/255.0 alpha:1]
+#define FaColor [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1]
 //注册
 #define registAccount @""
 //登陆

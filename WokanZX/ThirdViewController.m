@@ -18,8 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"观看演示";
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:BColor,NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+    
     self.view.backgroundColor = [UIColor orangeColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_set_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_btn"] style:UIBarButtonItemStyleDone target:self action:@selector(showMenu)];
 
 }
 
