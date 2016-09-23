@@ -80,7 +80,7 @@
     //            return;
     //        }
     //    }
-    //    [self loginAccountInter];
+        [self loginAccountInter];
 
     
     
@@ -91,14 +91,22 @@
 {
     [self.view endEditing:YES];
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
-    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"number",self.pwdTextField.text,@"password",nil];
-    [manager POST:loginAccount parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if ([[dic  objectForKey:@"id"] isEqualToString:@"false"]) {
-            [FormValidator showAlertWithStr:@"用户名或者密码错误"];
-        }else{
-            //用户名密码输入正确后，登录后需要跳转的页面
-        }
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+//    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"number",self.pwdTextField.text,@"password",nil];
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:@"test00000000001",@"imei",nil];
+    [manager POST:loginAccount parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"%@",responseObject);
+        
+//        if ([[dic  objectForKey:@"id"] isEqualToString:@"false"]) {
+//            [FormValidator showAlertWithStr:@"用户名或者密码错误"];
+//        }else{
+//            //用户名密码输入正确后，登录后需要跳转的页面
+//        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
         [FormValidator showAlertWithStr:failTipe];
     }];
     

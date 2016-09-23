@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterVC">
             <connections>
+                <outlet property="phoneTextField" destination="bjD-4B-IcM" id="PHf-Uw-OA1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,6 +63,9 @@
                         <constraint firstAttribute="height" constant="30" id="n9U-qv-7Z5"/>
                     </constraints>
                     <state key="normal" title="获取验证码"/>
+                    <connections>
+                        <action selector="toRegister2VC:" destination="-1" eventType="touchUpInside" id="lYO-ZF-CTv"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即代表同意［沃 . 看装修］" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44H-ui-Lt9">
                     <rect key="frame" x="20" y="215" width="180" height="21"/>

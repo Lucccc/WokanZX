@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
@@ -18,21 +19,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_pic" translatesAutoresizingMaskIntoConstraints="NO" id="3HA-iC-vpV">
-                    <rect key="frame" x="130" y="130" width="115" height="85"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="85" id="O8d-vI-H06"/>
                         <constraint firstAttribute="width" constant="115" id="XIg-WD-bwe"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XM-gr-1jD">
-                    <rect key="frame" x="18" y="300" width="340" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Gst-EK-LCh"/>
                     </constraints>
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+86" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIc-SA-6Wf">
-                    <rect key="frame" x="43" y="263" width="302" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="s4N-JX-Rmx"/>
                     </constraints>
@@ -40,14 +38,12 @@
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="IWi-9s-jZJ">
-                    <rect key="frame" x="20" y="270" width="15" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="GnM-V1-hoL"/>
                         <constraint firstAttribute="width" constant="15" id="R1L-9M-oRA"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQ3-Wv-SRr">
-                    <rect key="frame" x="43" y="315" width="302" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="ccc-GX-kPd"/>
                     </constraints>
@@ -55,22 +51,19 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_code" translatesAutoresizingMaskIntoConstraints="NO" id="95p-eZ-CfT">
-                    <rect key="frame" x="20" y="322" width="15" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="YL1-Vs-NHj"/>
                         <constraint firstAttribute="width" constant="15" id="q4d-ga-JNP"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-h9-DPS">
-                    <rect key="frame" x="20" y="352" width="335" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ha2-Kn-0r3"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="wx9-sy-8Ru"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8N-Ic-RP3" customClass="GLButton">
-                    <rect key="frame" x="25" y="373" width="325" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="bEq-4l-Jke"/>
                     </constraints>
@@ -80,7 +73,6 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isY-Lm-aoj">
-                    <rect key="frame" x="20" y="413" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="gg3-f2-4Dh"/>
                         <constraint firstAttribute="height" constant="30" id="zvO-vO-oAN"/>
@@ -91,7 +83,6 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK6-Ua-O7E">
-                    <rect key="frame" x="271" y="411" width="84" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Uwi-RR-vDE"/>
                         <constraint firstAttribute="width" constant="84" id="jVE-ny-Nrr"/>
@@ -102,7 +93,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="isY-Lm-aoj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="06e-bH-Ivj"/>
                 <constraint firstItem="bQ3-Wv-SRr" firstAttribute="leading" secondItem="95p-eZ-CfT" secondAttribute="trailing" constant="8" symbolic="YES" id="0Y0-RE-nLZ"/>
@@ -131,13 +122,12 @@
                 <constraint firstItem="isY-Lm-aoj" firstAttribute="top" secondItem="c8N-Ic-RP3" secondAttribute="bottom" constant="10" id="v9z-y4-HYc"/>
                 <constraint firstItem="WIc-SA-6Wf" firstAttribute="leading" secondItem="IWi-9s-jZJ" secondAttribute="trailing" constant="8" symbolic="YES" id="y8G-dq-vz4"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="181.5" y="189.5"/>
         </view>
     </objects>
     <resources>
-        <image name="login_code" width="11" height="14"/>
+        <image name="login_code" width="11" height="13"/>
         <image name="login_phone" width="10" height="15"/>
-        <image name="login_pic" width="79" height="59"/>
+        <image name="login_pic" width="78" height="59"/>
     </resources>
 </document>

@@ -7,8 +7,11 @@
 //
 
 #import "RegisterVC.h"
+#import "RegisterVC2.h"
+#import "GLtextField.h"
 
 @interface RegisterVC ()
+@property (weak, nonatomic) IBOutlet GLtextField *phoneTextField;
 
 @end
 
@@ -43,6 +46,39 @@
     
 }
 
+- (IBAction)toRegister2VC:(id)sender {
+    
+    
+    //验证手机号
+    if ([_phoneTextField.text isEqualToString:@""]||_phoneTextField.text == nil) {
+        [FormValidator showAlertWithStr:@"请输入手机号"];
+        
+    }else{
+        AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+        NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:_phoneTextField.text,@"userPhoneNumber", nil];
+        [manager POST:validate parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *dic =(NSDictionary *)responseObject;
+                NSLog(@"%@",dic);
+           // [self readSecond];
+            //self.registStr = [dic objectForKey:@"yanzheng"];
+            // NSLog(@"发送成功%@",responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // NSLog(@"失败%@",error);
+        }];
+        
+        
+    }
+
+    RegisterVC2 *regist=[[RegisterVC2 alloc]init];
+    // [self presentViewController:regist animated:YES completion:nil];
+    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = bbt;
+    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController pushViewController:regist animated:YES];
+
+    
+    
+}
 
 /*
 #pragma mark - Navigation

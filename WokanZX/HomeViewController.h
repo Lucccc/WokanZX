@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
-#import <PLPlayerKit/PLPlayerKit.h>
 
-@interface HomeViewController : UIViewController <PLPlayerDelegate>
 
-@property (nonatomic, strong) PLPlayer  *player;
+@interface HomeViewController : UIViewController
+
 
 
 @end

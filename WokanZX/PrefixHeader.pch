@@ -23,15 +23,18 @@
 #import "SHInvoker.h"
 #import "UITextField+Extension.h"
 #import "RESideMenu.h"
+#import "Masonry.h"
 
 #define failTipe @"网络开小差了，稍后试试吧"
+
+#define WS()  __weak typeof (self) weakSelf = self
 
 #define BColor [UIColor colorWithRed:0/255.0 green:173/255.0 blue:228/255.0 alpha:1]
 #define FaColor [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1]
 //注册
 #define registAccount @""
 //登陆
-#define loginAccount @""
+#define loginAccount @"http://reiniot.shangjinxin.net/api/device/pull-info?imei=test00000000001"
 //验证码接口
 #define validate @""
 //忘记密码接口
