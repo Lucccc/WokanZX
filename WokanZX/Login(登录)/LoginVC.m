@@ -24,6 +24,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [SVProgressHUD dismiss];
     self.navigationController.navigationBarHidden = NO;
     self.title = @"登录";
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:BColor,NSForegroundColorAttributeName, nil];
@@ -48,39 +49,25 @@
 
 - (IBAction)loginBtnClick:(id)sender {
     //登录
-    /**登录成功要完成的任务*/
     
-    HomeViewController *home = [[HomeViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:home];
-    LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
-    
-    
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
-    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-    
-    sideMenuViewController.delegate = self;
-    //sideMenuViewController.tempViewController = rightMenuViewController;
-    //sideMenuViewController.tempViewController = nil;
-    [self.navigationController pushViewController:sideMenuViewController animated:YES];
-    /**登录成功要完成的任务 */
-    
-    //    NSString *userName =[FormValidator checkMobile:_phoneTextField.text];
-    //    NSString *passWord=[FormValidator checkPassword:_passwordText.text];
-    //    if ([_phoneTextField.text isEqualToString:@""]||_phoneTextField.text == nil||[_passwordText.text isEqualToString:@""]||_passwordText.text == nil) {
-    //        [FormValidator showAlertWithStr:@"用户名或密码不能为空"];
-    //        return;
-    //    }else{
-    //        if (userName) {
-    //            [FormValidator showAlertWithStr:userName];
-    //            return;
-    //        }
-    //        if (passWord) {
-    //            [FormValidator showAlertWithStr:passWord];
-    //            return;
-    //        }
-    //    }
+    NSString *userName =[FormValidator checkMobile:_phoneTextField.text];
+    NSString *passWord=[FormValidator checkPassword:_pwdTextField.text];
+    if ([_phoneTextField.text isEqualToString:@""]||_phoneTextField.text == nil||[_pwdTextField.text isEqualToString:@""]||_pwdTextField.text == nil) {
+        [FormValidator showAlertWithStr:@"用户名或密码不能为空"];
+        return;
+    }else{
+        if (userName) {
+            [FormValidator showAlertWithStr:userName];
+            return;
+        }
+        if (passWord) {
+            [FormValidator showAlertWithStr:passWord];
+            return;
+        }
+    }
+        [SVProgressHUD showInfoWithStatus:@"登录中"];
         [self loginAccountInter];
+    
 
     
     
@@ -90,24 +77,44 @@
 -(void)loginAccountInter
 {
     [self.view endEditing:YES];
+    
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
-//    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"number",self.pwdTextField.text,@"password",nil];
-    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:@"test00000000001",@"imei",nil];
-    [manager POST:loginAccount parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"mobile",self.pwdTextField.text,@"password",nil];
+   // NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:@"test00000000001",@"imei",nil];
+   // NSLog(@"%@",dic);
+    [manager POST:loginAccount parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSLog(@"%@",responseObject);
-        
-//        if ([[dic  objectForKey:@"id"] isEqualToString:@"false"]) {
-//            [FormValidator showAlertWithStr:@"用户名或者密码错误"];
-//        }else{
-//            //用户名密码输入正确后，登录后需要跳转的页面
-//        }
+        NSDictionary *responseD = (NSDictionary *)responseObject;
+        if ([[responseD  objectForKey:@"status_code"] isEqualToString:@"500"]) {
+             [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+        }else{
+            //用户名密码输入正确后，登录后需要跳转的页面
+            /**登录成功要完成的任务*/
+            [USERDEFAULT setObject:[responseD objectForKey:@"persistence_code"] forKey:@"persistence_code"];
+            
+            HomeViewController *home = [[HomeViewController alloc] init];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:home];
+            LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
+            
+            
+            RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+            sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+            sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+            
+            sideMenuViewController.delegate = self;
+            //sideMenuViewController.tempViewController = rightMenuViewController;
+            //sideMenuViewController.tempViewController = nil;
+            [self.navigationController pushViewController:sideMenuViewController animated:YES];
+            /**登录成功要完成的任务 */
+
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         
-        [FormValidator showAlertWithStr:failTipe];
+         [SVProgressHUD showErrorWithStatus:failTipe];
     }];
     
     

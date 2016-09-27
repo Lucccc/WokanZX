@@ -8,10 +8,13 @@
 
 #import "LaunchViewController.h"
 #import "ZLScrolling.h"
+#import "HomeViewController.h"
+#import "LeftMenuViewController.h"
 
 
 
-@interface LaunchViewController ()<ZLScrollingDelegate>
+
+@interface LaunchViewController ()<ZLScrollingDelegate,RESideMenuDelegate>
 
 @end
 
@@ -19,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -43,9 +47,12 @@
      *  本地方式获取图片
      */
     UIImageView *imageView = [UIImageView addImgWithFrame:CGRectMake(SCREEN_WIDTH/2 -80, SCREEN_HEIGHT/4, 157, 118) AndImage:@"login_pic"];
-     UIButton *regBtn =[UIButton addBtnImage:@"注册" AndFrame:CGRectMake(30*Width, 450*Height, 100*Width, 36*Height) WithTarget:self action:@selector(registAccountButton)];
-    UIButton *loginBtn =[UIButton addBtnImage:@"登录" AndFrame:CGRectMake(100*Width-80+SCREEN_WIDTH/2, 450*Height, 100*Width, 36*Height) WithTarget:self action:@selector(loginAccountButton)];
+    // UIButton *regBtn =[UIButton addBtnImage:@"注册" AndFrame:CGRectMake(50*Width,SCREEN_HEIGHT-20-200*Height, 300*Width, 200*Height) WithTarget:self action:@selector(registAccountButton)];
+    
+    
 
+    
+    
     NSArray *array = @[@"home_1",@"home_2",@"home_3",@"home_4"];
 
     ZLScrolling *zzzz = [[ZLScrolling alloc] initWithCurrentController:self frame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) photos:array placeholderImage:nil];
@@ -53,8 +60,29 @@
     zzzz.delegate = self;
     
     self.navigationController.navigationBarHidden = YES;
+   
+    UIButton *regBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [regBtn setBackgroundImage:[UIImage imageNamed: @"注册"] forState:UIControlStateNormal];
+    [regBtn addTarget:self action:@selector(registAccountButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:regBtn];
+    [regBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(150, 45));
+        make.bottom.equalTo(self.view.mas_bottom).offset(-20);
+        make.left.equalTo(self.view.mas_left).offset(25);
+    }];
+    
+    // UIButton *loginBtn =[UIButton addBtnImage:@"登录" AndFrame:CGRectMake(80*Width-80+SCREEN_WIDTH/2,SCREEN_HEIGHT-20-200*Height, 300*Width, 200*Height) WithTarget:self action:@selector(loginAccountButton)];
+    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [loginBtn setBackgroundImage:[UIImage imageNamed: @"登录"] forState:UIControlStateNormal];
+    [loginBtn addTarget:self action:@selector(loginAccountButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
+    [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(160, 45));
+        make.bottom.equalTo(self.view.mas_bottom).offset(-20);
+        make.right.equalTo(self.view.mas_right).offset(-25);
+    }];
+    
+    //[self.view addSubview:loginBtn];
     [self.view addSubview:imageView];
 }
 
@@ -73,13 +101,60 @@
 
 - (void)loginAccountButton{
     NSLog(@"denglu");
-    LoginVC *aaa = [[LoginVC alloc]init];
-    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.backBarButtonItem = bbt;
-    UINavigationController *loginNav = [[UINavigationController alloc]initWithRootViewController:aaa];
-    loginNav.title = @"登录";
-    self.navigationController.navigationBar.hidden = NO;
-    [self.navigationController pushViewController:aaa animated:YES];
+    [SVProgressHUD showInfoWithStatus:@"登录中"];
+    if([USERDEFAULT objectForKey:@"persistence_code"] != nil){
+        
+        NSString *pcode = [USERDEFAULT objectForKey:@"persistence_code"];
+        AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
+        
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+        NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:pcode,@"code",nil];
+        // NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:@"test00000000001",@"imei",nil];
+        // NSLog(@"%@",dic);
+        [manager POST:@"http://reiniot.shangjinxin.net/api/user/persist" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            NSLog(@"%@",responseObject);
+            NSDictionary *responseD = (NSDictionary *)responseObject;
+            //用户名密码输入正确后，登录后需要跳转的页面
+            /**登录成功要完成的任务*/
+            
+            [USERDEFAULT setObject:[responseD objectForKey:@"persistence_code"] forKey:@"persistence_code"];
+            
+            HomeViewController *home = [[HomeViewController alloc] init];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:home];
+            LeftMenuViewController *leftMenuViewController = [[LeftMenuViewController alloc] init];
+            
+            
+            RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+            sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+            sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+            
+            sideMenuViewController.delegate = self;
+            //sideMenuViewController.tempViewController = rightMenuViewController;
+            //sideMenuViewController.tempViewController = nil;
+            [self.navigationController pushViewController:sideMenuViewController animated:YES];
+            /**登录成功要完成的任务 */
+            
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@",error);
+            [SVProgressHUD showErrorWithStatus:failTipe];
+            
+        }];
+        
+        
+    }else{
+        LoginVC *aaa = [[LoginVC alloc]init];
+        UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+        self.navigationItem.backBarButtonItem = bbt;
+        UINavigationController *loginNav = [[UINavigationController alloc]initWithRootViewController:aaa];
+        loginNav.title = @"登录";
+        self.navigationController.navigationBar.hidden = NO;
+        [self.navigationController pushViewController:aaa animated:YES];
+    }
+    
+    
+    
 }
 - (void)zlScrolling:(ZLScrolling *)zlScrolling clickAtIndex:(NSInteger)index
 {

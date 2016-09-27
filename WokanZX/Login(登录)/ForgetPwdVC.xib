@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgetPwdVC">
@@ -17,17 +18,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM0-wL-49J">
-                    <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="h17-A4-G1v">
-                            <rect key="frame" x="16" y="15" width="14" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="14" id="iwf-YB-GPL"/>
                                 <constraint firstAttribute="height" constant="20" id="kI8-Ig-Wep"/>
                             </constraints>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+86 请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E8i-Bn-C2G" customClass="GLtextField">
-                            <rect key="frame" x="46" y="10" width="309" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Ga3-PW-btt"/>
                             </constraints>
@@ -35,7 +33,7 @@
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="E8i-Bn-C2G" secondAttribute="bottom" constant="10" id="EzB-Md-iYc"/>
                         <constraint firstItem="h17-A4-G1v" firstAttribute="top" secondItem="FM0-wL-49J" secondAttribute="top" constant="15" id="Fnu-VG-DMy"/>
@@ -48,7 +46,6 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-u8-nbN" customClass="GLButton">
-                    <rect key="frame" x="30" y="180" width="315" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="ZsY-DN-MCJ"/>
                     </constraints>
@@ -58,7 +55,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="FM0-wL-49J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9mf-PW-TlP"/>
                 <constraint firstItem="FM0-wL-49J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Eaw-EC-4Mx"/>
@@ -67,7 +64,6 @@
                 <constraint firstItem="jfC-u8-nbN" firstAttribute="top" secondItem="FM0-wL-49J" secondAttribute="bottom" constant="30" id="tJO-n9-iSc"/>
                 <constraint firstItem="jfC-u8-nbN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="zTc-p6-g4z"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
     <resources>

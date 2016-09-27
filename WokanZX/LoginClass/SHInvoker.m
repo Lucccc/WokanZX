@@ -32,7 +32,7 @@
      #define SHInvokerUserInfoStatus @"status"  身份
      #define SHInvokerUserInfoUserId @"userId"  用户ID
      */
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userDefault = USERDEFAULT;
     
     //存储时，除NSNumber类型使用对应的类型意外，其他的都是使用setObject:forKey:
     
@@ -94,7 +94,7 @@
 }
 //从NSUserDefaults中读取数据
 + (NSDictionary*)getUserInfo {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userDefault = USERDEFAULT;
     NSDictionary * returnDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [userDefault objectForKey:SHInvokerUserInfoAmount],SHInvokerUserInfoAmount,
                                  [userDefault objectForKey:SHInvokerUserInfoBusibussId],

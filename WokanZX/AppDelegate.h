@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #include "RESideMenu.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudIM/AVOSCloudIM.h>
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,RESideMenuDelegate>
 @property (strong, nonatomic) UIWindow *window;
+
 
 
 @end

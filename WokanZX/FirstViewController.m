@@ -57,6 +57,10 @@
     
 }
 - (IBAction)SignOut:(id)sender {
+    NSString*appDomain = [[NSBundle mainBundle]bundleIdentifier];
+    
+    [[NSUserDefaults standardUserDefaults]removePersistentDomainForName:appDomain];
+    
     LaunchViewController *vc = [[LaunchViewController alloc]init];
     
     [self.navigationController pushViewController:vc animated:YES];

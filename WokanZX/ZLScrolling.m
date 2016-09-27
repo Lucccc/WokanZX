@@ -54,7 +54,7 @@ static NSInteger pageCount = 1000;
         [self.view addSubview:self.collectionView];
         [self.view addSubview:self.pageControl];
         self.collectionView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        self.pageControl.frame = CGRectMake(0, frame.size.height-200, frame.size.width, 20);
+        self.pageControl.frame = CGRectMake(0, frame.size.height-100, frame.size.width, 20);
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:(_photos.count*pageCount)/2 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
     }
     return self;

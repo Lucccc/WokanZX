@@ -138,12 +138,12 @@
 		18DDA1F81D85BEAF00066A7D /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		18DDA1F91D85BEAF00066A7D /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
 		18DDA1FA1D85BEAF00066A7D /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
-		18DDA1FC1D85BEAF00066A7D /* ForgetPassWordVCNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordVCNew.h; sourceTree = "<group>"; };
-		18DDA1FD1D85BEAF00066A7D /* ForgetPassWordVCNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordVCNew.m; sourceTree = "<group>"; };
-		18DDA1FE1D85BEAF00066A7D /* LoginVCNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVCNew.h; sourceTree = "<group>"; };
-		18DDA1FF1D85BEAF00066A7D /* LoginVCNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVCNew.m; sourceTree = "<group>"; };
-		18DDA2001D85BEAF00066A7D /* RegisterVCNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVCNew.h; sourceTree = "<group>"; };
-		18DDA2011D85BEAF00066A7D /* RegisterVCNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVCNew.m; sourceTree = "<group>"; };
+		18DDA1FC1D85BEAF00066A7D /* ForgetPassWordVCNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPassWordVCNew.h; path = "Login(登录)/ForgetPassWordVCNew.h"; sourceTree = "<group>"; };
+		18DDA1FD1D85BEAF00066A7D /* ForgetPassWordVCNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPassWordVCNew.m; path = "Login(登录)/ForgetPassWordVCNew.m"; sourceTree = "<group>"; };
+		18DDA1FE1D85BEAF00066A7D /* LoginVCNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginVCNew.h; path = "Login(登录)/LoginVCNew.h"; sourceTree = "<group>"; };
+		18DDA1FF1D85BEAF00066A7D /* LoginVCNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginVCNew.m; path = "Login(登录)/LoginVCNew.m"; sourceTree = "<group>"; };
+		18DDA2001D85BEAF00066A7D /* RegisterVCNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterVCNew.h; path = "Login(登录)/RegisterVCNew.h"; sourceTree = "<group>"; };
+		18DDA2011D85BEAF00066A7D /* RegisterVCNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterVCNew.m; path = "Login(登录)/RegisterVCNew.m"; sourceTree = "<group>"; };
 		18DDA2031D85BEAF00066A7D /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
 		18DDA2041D85BEAF00066A7D /* FormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidator.m; sourceTree = "<group>"; };
 		18DDA2051D85BEAF00066A7D /* SHInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHInvoker.h; sourceTree = "<group>"; };
@@ -332,12 +332,6 @@
 		18DDA1FB1D85BEAF00066A7D /* Login(登录) */ = {
 			isa = PBXGroup;
 			children = (
-				18DDA1FC1D85BEAF00066A7D /* ForgetPassWordVCNew.h */,
-				18DDA1FD1D85BEAF00066A7D /* ForgetPassWordVCNew.m */,
-				18DDA1FE1D85BEAF00066A7D /* LoginVCNew.h */,
-				18DDA1FF1D85BEAF00066A7D /* LoginVCNew.m */,
-				18DDA2001D85BEAF00066A7D /* RegisterVCNew.h */,
-				18DDA2011D85BEAF00066A7D /* RegisterVCNew.m */,
 				186324FC1D9019E400BDA274 /* LoginVC.h */,
 				186324FD1D9019E400BDA274 /* LoginVC.m */,
 				186324FE1D9019E400BDA274 /* LoginVC.xib */,
@@ -419,6 +413,12 @@
 		18EF73C31D7DBCB200115966 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18DDA1FC1D85BEAF00066A7D /* ForgetPassWordVCNew.h */,
+				18DDA1FD1D85BEAF00066A7D /* ForgetPassWordVCNew.m */,
+				18DDA1FE1D85BEAF00066A7D /* LoginVCNew.h */,
+				18DDA1FF1D85BEAF00066A7D /* LoginVCNew.m */,
+				18DDA2001D85BEAF00066A7D /* RegisterVCNew.h */,
+				18DDA2011D85BEAF00066A7D /* RegisterVCNew.m */,
 				18EF73C41D7DBCB200115966 /* main.m */,
 				18DDA2111D85C00E00066A7D /* PrefixHeader.pch */,
 			);

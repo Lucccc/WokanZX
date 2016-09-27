@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [SVProgressHUD dismiss];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home_logotittle"]];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_set_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
@@ -90,12 +92,40 @@
 
 
 -(void)liveBtnClicked:(NSInteger)section row:(NSInteger)row{
-    NSLog(@"%s",__func__);
-    NSLog(@"第%ld块%ld行被点击",section,row);
-    LiveViewController *liveVC = [[LiveViewController alloc]init];
-    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.backBarButtonItem = bbt;
-    [self.navigationController pushViewController:liveVC animated:YES];
+    
+    
+    if ([USERDEFAULT objectForKey:@"ORIGIN"] != nil) {
+        NSLog(@"%s",__func__);
+        NSLog(@"第%ld块%ld行被点击",section,row);
+        LiveViewController *liveVC = [[LiveViewController alloc]init];
+        UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+        self.navigationItem.backBarButtonItem = bbt;
+        [self.navigationController pushViewController:liveVC animated:YES];
+    }else{
+        AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+        NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
+        NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:@"test00000000001",@"imei",code,@"persistence_code", nil];
+        [manager POST:@"http://reiniot.shangjinxin.net/api/user/pull-info" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *resdict =(NSDictionary *)responseObject;
+            
+            [USERDEFAULT setObject:[resdict objectForKey:@"ORIGIN"] forKey:@"ORIGIN"];
+            NSLog(@"%s",__func__);
+            NSLog(@"第%ld块%ld行被点击",section,row);
+            LiveViewController *liveVC = [[LiveViewController alloc]init];
+            UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+            self.navigationItem.backBarButtonItem = bbt;
+            [self.navigationController pushViewController:liveVC animated:YES];
+            
+            // NSLog(@"发送成功%@",responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // NSLog(@"失败%@",error);
+            [SVProgressHUD showErrorWithStatus:failTipe];
+        }];
+    }
+    
+    
+
+    
     
 }
 

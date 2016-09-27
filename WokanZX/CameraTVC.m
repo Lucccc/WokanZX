@@ -38,6 +38,7 @@
             make.width.equalTo(CameraImg);
             make.bottom.equalTo(CameraImg.mas_bottom);
             make.height.mas_equalTo(70);
+            make.centerX.equalTo(CameraImg.mas_centerX);
         }];
         
         
@@ -68,23 +69,23 @@
         
         [replaybtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(btnView);
-            make.bottom.equalTo(CameraImg).offset(-10);
-            make.size.mas_equalTo(CGSizeMake(80, 30));
+            make.bottom.equalTo(CameraImg).offset(-15);
+            make.size.mas_equalTo(CGSizeMake(80, 27));
             
         }];
         
         [livebtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(replaybtn.mas_centerY);
-            make.bottom.equalTo(CameraImg).offset(-10);
-            make.size.mas_equalTo(CGSizeMake(80, 30));
+            make.bottom.equalTo(CameraImg).offset(-15);
+            make.size.mas_equalTo(CGSizeMake(80, 27));
             make.trailing.equalTo(replaybtn.mas_leading).offset(-10);
             
         }];
         
         [setbtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(replaybtn.mas_centerY);
-            make.bottom.equalTo(CameraImg).offset(-10);
-            make.size.mas_equalTo(CGSizeMake(80, 30));
+            make.bottom.equalTo(CameraImg).offset(-15);
+            make.size.mas_equalTo(CGSizeMake(80, 27));
             make.leading.equalTo(replaybtn.mas_trailing).offset(10);
             
         }];

@@ -24,6 +24,7 @@
 #import "UITextField+Extension.h"
 #import "RESideMenu.h"
 #import "Masonry.h"
+#import "SVProgressHUD.h"
 
 #define failTipe @"网络开小差了，稍后试试吧"
 
@@ -34,13 +35,13 @@
 //注册
 #define registAccount @""
 //登陆
-#define loginAccount @"http://reiniot.shangjinxin.net/api/device/pull-info?imei=test00000000001"
+#define loginAccount @"http://reiniot.shangjinxin.net/api/login"
 //验证码接口
-#define validate @""
+#define validate @"http://reiniot.shangjinxin.net/api/sms-code"
 //忘记密码接口
 #define forgetPassW @""
 
-
+#define USERDEFAULT [NSUserDefaults standardUserDefaults]
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

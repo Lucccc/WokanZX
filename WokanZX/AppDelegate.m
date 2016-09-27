@@ -16,6 +16,7 @@
 
 
 
+
 @interface AppDelegate ()
 
 @end
@@ -57,6 +58,19 @@
 //    
 //    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //添加leancloud
+    // 如果使用美国站点，请加上下面这行代码：
+    // [AVOSCloud setServiceRegion:AVServiceRegionUS];
+    
+    // 如果使用美国站点，请加上下面这行代码：
+    // [AVOSCloud setServiceRegion:AVServiceRegionUS];
+    
+    [AVOSCloud setApplicationId:@"M5XeNvWuya7bRFiwtnjMhJ2o-gzGzoHsz" clientKey:@"CqeiuxOtnsgKtabHCxvrIbbc"];
+
+
+
+
   
         return YES;
 }
