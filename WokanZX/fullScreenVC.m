@@ -12,10 +12,18 @@
 
 
 
+
 @interface fullScreenVC ()<AVIMClientDelegate,AVIMSignatureDataSource,AVSessionDelegate,AVSignatureDelegate>
 
 @property (nonatomic, strong) AVIMClient *client;
 @property (nonatomic,strong )NSDictionary *dict;
+@property (nonatomic,copy)NSString *openWitch;
+@property (nonatomic,strong)AVIMSignature *sig;
+
+
+
+
+
 
 @end
 
@@ -37,7 +45,7 @@
     //NSURL *url = [NSURL URLWithString:@"rtmp://pili-live-rtmp.reiniot.shangjinxin.net/reiniot/test00000000001"];
     self.player = [PLPlayer playerWithURL:url option:option];
     self.player.delegate = self;
-    
+       
     WS();
     UIView *playView = [[UIView alloc]init];
     playView.tag = 888;
@@ -288,34 +296,23 @@
     }
 }
 
-- (id)conversationSignWithSelfId:(NSString *)clientId conversationId:(NSString *)conversationId targetIds:(NSArray *)targetIds action:(NSString *)action {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:clientId forKey:@"self_id"];
-    if (conversationId) {
-        [dict setObject:conversationId forKey:@"convid"];
-    }
-    if (targetIds) {
-        [dict setObject:targetIds forKey:@"targetIds"];
-    }
-    if (action) {
-        [dict setObject:action forKey:@"action"];
-    }
-    //这里是从云代码获取签名，也可以从你的服务器获取
-    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
-    NSString *aaa = @"http://reiniot.shangjinxin.net/api/user/sign-im-login?persistence_code=mZ8hMrVwAyqUOH0MfaA95Rw7qgeZuLVf";
-    [manager POST:aaa parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.dict =(NSDictionary *)responseObject;
-        NSLog(@"%@",self.dict);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // NSLog(@"失败%@",error);
-        
-    }];
+- (NSDictionary *)conversationSignWithSelfId:(NSString *)clientId conversationId:(NSString *)conversationId targetIds:(NSArray *)targetIds action:(NSString *)action{
+    //NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSLog(@"-----------------%s",__func__);
     
-    return self.dict;
+    
+    
+    
+    
+    
+    return nil;
+    //这里是从云代码获取签名，也可以从你的服务器获取
 }
 
+
+
 - (AVIMSignature *)getAVSignatureWithParams:(NSDictionary *)fields peerIds:(NSArray *)peerIds {
+    NSLog(@"-----------------%s",__func__);
     AVIMSignature *avSignature = [[AVIMSignature alloc] init];
     NSNumber *timestampNum = [fields objectForKey:@"timestamp"];
     long timestamp = [timestampNum longValue];
@@ -325,71 +322,144 @@
     [avSignature setTimestamp:timestamp];
     [avSignature setNonce:nonce];
     [avSignature setSignature:signature];
+    
     return avSignature;
+}
+
+
+
+
+
+-(void)talkBtnClick{
+    
+    // Tom 打开 client
+    
+    
+}
+
+
+-(void)Httplogin{
+    
+    
+    AFHTTPSessionManager * manager1 =[AFHTTPSessionManager manager];
+    NSString *aaa1 =@"http://reiniot.shangjinxin.net/api/user/sign-im-login";
+    NSDictionary *dic1 = @{@"persistence_code":[USERDEFAULT objectForKey:@"persistence_code"]
+                           };
+    [manager1 POST:aaa1 parameters:dic1 progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"aadsfadsfadsfasdf");
+        self.dict  = (NSDictionary *)responseObject;
+        AVIMSignature *avSignature = [[AVIMSignature alloc] init];
+        NSNumber *timestampNum = [_dict objectForKey:@"timestamp"];
+        long timestamp = [timestampNum longValue];
+        NSString *nonce = [_dict objectForKey:@"nonce"];
+        NSString *signature = [_dict objectForKey:@"signature"];
+        [avSignature setTimestamp:timestamp];
+        [avSignature setNonce:nonce];
+        [avSignature setSignature:signature];
+        
+        self.sig = avSignature;
+        
+        NSLog(@"talk");
+        // Tom 创建了一个 client，用自己的名字作为 clientId
+        
+        self.client = [[AVIMClient alloc] initWithClientId:@"user_5"];
+        self.client.delegate = self;
+        self.client.signatureDataSource = self;
+        
+        [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                // 出错了，可能是网络问题无法连接 LeanCloud 云端，请检查网络之后重试。
+                // 此时聊天服务不可用。
+                UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"聊天不可用！" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [view show];
+            } else {
+                // 成功登录，可以开始进行聊天了。
+                NSLog(@"登录成功");
+                [self Httpcreat];
+                
+                
+            }
+        }];
+
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败%@",error);
+        
+    }];
+    
+    
+}
+
+-(void)Httpcreat{
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    NSString *aaa =@"http://reiniot.shangjinxin.net/api/user/sign-im-conversation";
+    NSDictionary *dic = @{@"persistence_code":[USERDEFAULT objectForKey:@"persistence_code"],
+                          @"imei":@"test00000000001"};
+    [manager POST:aaa parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        self.dict  = (NSDictionary *)responseObject;
+        AVIMSignature *avSignature = [[AVIMSignature alloc] init];
+        NSNumber *timestampNum = [_dict objectForKey:@"timestamp"];
+        long timestamp = [timestampNum longValue];
+        NSString *nonce = [_dict objectForKey:@"nonce"];
+        NSString *signature = [_dict objectForKey:@"signature"];
+        [avSignature setTimestamp:timestamp];
+        [avSignature setNonce:nonce];
+        [avSignature setSignature:signature];
+        
+        self.sig = avSignature;
+        
+        [self.client createConversationWithName:@"user_5_to_device_1" clientIds:@[@"user_5",@"device_1"] callback:^(AVIMConversation *conversation, NSError *error) {
+            [conversation sendMessage:[AVIMTextMessage messageWithText:@"耗子，起床！" attributes:nil] callback:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"发送成功！");
+                    
+                    
+                }
+            }];
+        }];
+
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败%@",error);
+        
+    }];
+    
+    
+    //NSLog(@"%@",self.sig);
+    
+    
+    
+}
+
+
+-(void)topArrBtnClick{
+//    NSLog(@"toparr");
+//    NSLog(@"%@",[USERDEFAULT objectForKey:@"persistence_code"]);
+//    NSLog(@"%@",self.openWitch);
+    //responseObj *obj =[[responseObj alloc]init];
+    
+    [self Httplogin];
+    
+    
+    
+    
 }
 
 -(AVIMSignature *)signatureWithClientId:(NSString *)clientId conversationId:(NSString *)conversationId action:(NSString *)action actionOnClientIds:(NSArray *)clientIds{
     
-    
-    do {
-        if ([action isEqualToString:@"open"] || [action isEqualToString:@"start"]) {
-            action = nil;
-            break;
-        }
-        if ([action isEqualToString:@"remove"]) {
-            action = @"kick";
-            break;
-        }
-        if ([action isEqualToString:@"add"]) {
-            action = @"invite";
-            break;
-        }
-    } while (0);
-    NSDictionary *dict = [self conversationSignWithSelfId:clientId conversationId:conversationId targetIds:clientIds action:action];
-    if (self.dict != nil) {
-        return [self getAVSignatureWithParams:dict peerIds:clientIds];
-    } else {
-        return nil;
-    }
-    
+    return self.sig;
+        
 }
 
-
--(void)talkBtnClick{
-    NSLog(@"talk");
-    // Tom 创建了一个 client，用自己的名字作为 clientId
-    self.client = [[AVIMClient alloc] initWithClientId:@"user_4"];
-    self.client.delegate = self;
-    self.client.signatureDataSource = self;
-    
-    // Tom 打开 client
-    [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
-        if (error) {
-            // 出错了，可能是网络问题无法连接 LeanCloud 云端，请检查网络之后重试。
-            // 此时聊天服务不可用。
-            UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"聊天不可用！" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [view show];
-        } else {
-            // 成功登录，可以开始进行聊天了。
-            NSLog(@"登录成功");
-        }
-    }];
-    [self.client createConversationWithName:@"你妹啊" clientIds:@[@"user_4",@"aaa"] callback:^(AVIMConversation *conversation, NSError *error) {
-        [conversation sendMessage:[AVIMTextMessage messageWithText:@"耗子，起床！" attributes:nil] callback:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                NSLog(@"发送成功！");
-            }
-        }];
-    }];
-    
-}
-
--(void)topArrBtnClick{
-    NSLog(@"toparr");
-}
 
 -(void)botArrBtnClick{
     NSLog(@"botarr");
+    
+
 }
 
 -(void)leftArrBtnClick{
@@ -418,6 +488,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
     
     self.navigationController.navigationBarHidden = YES;
     

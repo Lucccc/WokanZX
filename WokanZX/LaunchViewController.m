@@ -66,7 +66,7 @@
     [regBtn addTarget:self action:@selector(registAccountButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:regBtn];
     [regBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(150, 45));
+        make.size.mas_equalTo(CGSizeMake(150, 50));
         make.bottom.equalTo(self.view.mas_bottom).offset(-20);
         make.left.equalTo(self.view.mas_left).offset(25);
     }];
@@ -77,7 +77,7 @@
     [loginBtn addTarget:self action:@selector(loginAccountButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(160, 45));
+        make.size.mas_equalTo(CGSizeMake(160, 50));
         make.bottom.equalTo(self.view.mas_bottom).offset(-20);
         make.right.equalTo(self.view.mas_right).offset(-25);
     }];

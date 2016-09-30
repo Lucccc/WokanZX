@@ -8,10 +8,26 @@
 
 #import "CameraTVC.h"
 #import "GLButton.h"
+#import "Device.h"
+@interface CameraTVC()
 
+@property(nonatomic,weak)UILabel *label;
+@property(nonatomic,weak)UIImageView *bgimage;
+
+@end
 
 @implementation CameraTVC
 
+
+-(void)setDevice:(Device *)device{
+    _device = device;
+    
+    self.label.text = device.name;
+    self.label.textColor = [UIColor colorWithRed:100/255.0 green:100/255.0 blue:100/255.0 alpha:1];
+    self.label.font = [UIFont systemFontOfSize:14];
+
+    
+}
 
 -(instancetype)initWithIntNum:(NSInteger)section row:(NSInteger)row{
     if (self == [super init]) {
@@ -20,8 +36,22 @@
        
         WS();
         
+        UILabel *nameLab = [[UILabel alloc]init];
+        //nameLab.text = @"123";
+        [self.contentView addSubview:nameLab];
+        self.label = nameLab;
+        [nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(200, 30));
+            make.bottom.equalTo(self.contentView).offset(-5);
+            make.left.equalTo(self.contentView).offset(10);
+            
+            
+        }];
+        
+        
         UIImageView *CameraImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home_1"]];
         [self.contentView addSubview:CameraImg];
+        self.bgimage = CameraImg;
         
         UIView *btnView = [[UIView alloc]init];
         btnView.backgroundColor = [UIColor clearColor];

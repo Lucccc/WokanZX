@@ -13,6 +13,9 @@
 		18226CC41D7EB4A600234092 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC31D7EB4A600234092 /* ThirdViewController.m */; };
 		18226CC71D7EC86E00234092 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC61D7EC86E00234092 /* FourthViewController.m */; };
 		18226CC91D7ED55E00234092 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18226CC81D7ED55E00234092 /* FirstViewController.xib */; };
+		1847A72B1D9E5C86009863CE /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847A72A1D9E5C86009863CE /* Device.m */; };
+		1847A72E1D9E680F009863CE /* DeviceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847A72D1D9E680F009863CE /* DeviceResult.m */; };
+		1847A7311D9E8770009863CE /* GLTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847A7301D9E8770009863CE /* GLTools.m */; };
 		1852B99E1D91214D006E5AA6 /* RegisterVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1852B99C1D91214D006E5AA6 /* RegisterVC2.m */; };
 		1852B99F1D91214D006E5AA6 /* RegisterVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1852B99D1D91214D006E5AA6 /* RegisterVC2.xib */; };
 		1852B9A31D913793006E5AA6 /* ForgetPwdVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1852B9A11D913793006E5AA6 /* ForgetPwdVC2.m */; };
@@ -37,7 +40,6 @@
 		18911A5B1D8E764A00643CEE /* AddCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18911A591D8E764A00643CEE /* AddCameraViewController.xib */; };
 		18C80A381D7F0A7000867E39 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A371D7F0A7000867E39 /* SecondViewController.xib */; };
 		18C80A3A1D7F112B00867E39 /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A391D7F112B00867E39 /* FourthViewController.xib */; };
-		18C80A3C1D7F115900867E39 /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A3B1D7F115900867E39 /* ThirdViewController.xib */; };
 		18DDA16C1D855E7A00066A7D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DDA16A1D855E7A00066A7D /* HomeViewController.m */; };
 		18DDA2071D85BEAF00066A7D /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DDA1F41D85BEAF00066A7D /* UIButton+Extension.m */; };
 		18DDA2081D85BEAF00066A7D /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DDA1F61D85BEAF00066A7D /* UIImageView+Extension.m */; };
@@ -88,6 +90,12 @@
 		18226CC51D7EC86E00234092 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		18226CC61D7EC86E00234092 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		18226CC81D7ED55E00234092 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		1847A7291D9E5C86009863CE /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		1847A72A1D9E5C86009863CE /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		1847A72C1D9E680F009863CE /* DeviceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceResult.h; sourceTree = "<group>"; };
+		1847A72D1D9E680F009863CE /* DeviceResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceResult.m; sourceTree = "<group>"; };
+		1847A72F1D9E8770009863CE /* GLTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTools.h; sourceTree = "<group>"; };
+		1847A7301D9E8770009863CE /* GLTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTools.m; sourceTree = "<group>"; };
 		1852B99B1D91214D006E5AA6 /* RegisterVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC2.h; sourceTree = "<group>"; };
 		1852B99C1D91214D006E5AA6 /* RegisterVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC2.m; sourceTree = "<group>"; };
 		1852B99D1D91214D006E5AA6 /* RegisterVC2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterVC2.xib; sourceTree = "<group>"; };
@@ -127,7 +135,6 @@
 		18911A591D8E764A00643CEE /* AddCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCameraViewController.xib; sourceTree = "<group>"; };
 		18C80A371D7F0A7000867E39 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		18C80A391D7F112B00867E39 /* FourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
-		18C80A3B1D7F115900867E39 /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 		18DDA1691D855E7A00066A7D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		18DDA16A1D855E7A00066A7D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		18DDA1F31D85BEAF00066A7D /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
@@ -216,6 +223,7 @@
 		188B8B5C1D885EEB00A45DC1 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				18AAD9E31D9C386700431E61 /* model */,
 				18DCBCA31D7E828F0065A7EF /* Controller */,
 				188B8B581D884ED000A45DC1 /* View */,
 			);
@@ -247,7 +255,6 @@
 			children = (
 				18226CC21D7EB4A600234092 /* ThirdViewController.h */,
 				18226CC31D7EB4A600234092 /* ThirdViewController.m */,
-				18C80A3B1D7F115900867E39 /* ThirdViewController.xib */,
 			);
 			name = review;
 			sourceTree = "<group>";
@@ -274,6 +281,17 @@
 				18911A591D8E764A00643CEE /* AddCameraViewController.xib */,
 			);
 			name = addcamera;
+			sourceTree = "<group>";
+		};
+		18AAD9E31D9C386700431E61 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1847A7291D9E5C86009863CE /* Device.h */,
+				1847A72A1D9E5C86009863CE /* Device.m */,
+				1847A72C1D9E680F009863CE /* DeviceResult.h */,
+				1847A72D1D9E680F009863CE /* DeviceResult.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		18DCBCA31D7E828F0065A7EF /* Controller */ = {
@@ -421,6 +439,8 @@
 				18DDA2011D85BEAF00066A7D /* RegisterVCNew.m */,
 				18EF73C41D7DBCB200115966 /* main.m */,
 				18DDA2111D85C00E00066A7D /* PrefixHeader.pch */,
+				1847A72F1D9E8770009863CE /* GLTools.h */,
+				1847A7301D9E8770009863CE /* GLTools.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -570,7 +590,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				186325001D9019E400BDA274 /* LoginVC.xib in Resources */,
-				18C80A3C1D7F115900867E39 /* ThirdViewController.xib in Resources */,
 				18EF73D01D7DBCB200115966 /* Assets.xcassets in Resources */,
 				18226CC91D7ED55E00234092 /* FirstViewController.xib in Resources */,
 				1863250A1D901A1700BDA274 /* ForgetPwdVC.xib in Resources */,
@@ -668,6 +687,7 @@
 				18226CB81D7E8CA400234092 /* FirstViewController.m in Sources */,
 				18DDA2081D85BEAF00066A7D /* UIImageView+Extension.m in Sources */,
 				186559F11D92A0E200ED5AA5 /* CameraTableViewCell.m in Sources */,
+				1847A7311D9E8770009863CE /* GLTools.m in Sources */,
 				188F2F3E1D8EA81F00F17DC7 /* GLtextField.m in Sources */,
 				18DDA20A1D85BEAF00066A7D /* UITextField+Extension.m in Sources */,
 				18226CBE1D7E8CF500234092 /* LeftMenuViewController.m in Sources */,
@@ -681,11 +701,13 @@
 				18EF73C51D7DBCB200115966 /* main.m in Sources */,
 				18DDA20B1D85BEAF00066A7D /* ForgetPassWordVCNew.m in Sources */,
 				186324FB1D8FE0D800BDA274 /* LXDScanView.m in Sources */,
+				1847A72E1D9E680F009863CE /* DeviceResult.m in Sources */,
 				18911A5A1D8E764A00643CEE /* AddCameraViewController.m in Sources */,
 				18DDA2071D85BEAF00066A7D /* UIButton+Extension.m in Sources */,
 				186C6BAF1D9443C000979ED0 /* CameraTVC.m in Sources */,
 				18DDA16C1D855E7A00066A7D /* HomeViewController.m in Sources */,
 				18DDA2091D85BEAF00066A7D /* UILabel+Extension.m in Sources */,
+				1847A72B1D9E5C86009863CE /* Device.m in Sources */,
 				186325091D901A1700BDA274 /* ForgetPwdVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

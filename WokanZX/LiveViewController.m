@@ -33,7 +33,6 @@
     self.player = [PLPlayer playerWithURL:url option:option];
     self.player.delegate = self;
     
-    
     //背景view
     WS();
     UIView *playView = [[UIView alloc]init];

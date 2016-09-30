@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <PLPlayerKit/PLPlayerKit.h>
+
+
 @interface fullScreenVC : UIViewController<PLPlayerDelegate>
+
+
 @property (nonatomic, strong) PLPlayer  *player;
 @end

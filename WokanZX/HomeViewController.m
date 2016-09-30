@@ -10,17 +10,30 @@
 #import "AddCameraViewController.h"
 #import "CameraTVC.h"
 #import "LiveViewController.h"
+#import "Device.h"
+#import "DeviceResult.h"
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,btnClickedDelegate>
 
 @property(nonatomic,assign)NSInteger index;
+@property(nonatomic,weak)UITableView *tableview;
+
+@property(nonatomic,strong)DeviceResult *deviceResult;
+
 @end
 
 @implementation HomeViewController
 
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [SVProgressHUD dismiss];
+    
+    //[self setupRefresh];
+    
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home_logotittle"]];
@@ -29,16 +42,29 @@
     
 
     
-    UITableView *tabelView = [[UITableView alloc]init];
-    [tabelView registerNib:[UINib nibWithNibName:@"CameraTableViewCell" bundle:nil] forCellReuseIdentifier:@"aqw"];
-    tabelView.delegate = self;
-    tabelView.dataSource = self;
-    tabelView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 1000);
-    tabelView.rowHeight = 300;
-    tabelView.scrollEnabled =YES;
+    UITableView *tableview = [[UITableView alloc]init];
+   
+    [tableview registerNib:[UINib nibWithNibName:@"CameraTableViewCell" bundle:nil] forCellReuseIdentifier:@"aqw"];
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    tableview.rowHeight = 300;
+    tableview.scrollEnabled =YES;
     //tabelView.delaysContentTouches = NO;
-    [self.view addSubview:tabelView];
+    tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [tableview.mj_footer beginRefreshing];
+        [self loadMoreComments];
+    }];
     
+    
+    [self.view addSubview:tableview];
+    
+    [tableview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+   
+    self.tableview  = tableview;
+    
+    [self setupRefresh];
     
 //    PLPlayerOption *option = [PLPlayerOption defaultOption];
 //    [option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
@@ -52,13 +78,48 @@
 
     
     
-    // Do any additional setup after loading the view from its nib.
 }
+
+/**
+ * 更新视图.
+ */
+
+-(void)setupRefresh{
+    self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    [self.tableview.mj_header beginRefreshing];
+}
+
+-(void)loadMoreComments{
+    
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:code,@"persistence_code", nil];
+    
+    
+    
+    [manager POST:@"http://reiniot.shangjinxin.net/api/user/devices" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.deviceResult = [DeviceResult mj_objectWithKeyValues:responseObject];
+        
+        
+        [self.tableview reloadData];
+        [self.tableview.mj_footer endRefreshing];
+        [self.tableview.mj_header endRefreshing];
+      
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // NSLog(@"失败%@",error);
+        [self.tableview.mj_footer endRefreshing];
+        [self.tableview.mj_header endRefreshing];
+        [SVProgressHUD showErrorWithStatus:failTipe];
+    }];
+    
+}
+
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 50;
+    return self.deviceResult.devices.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -71,8 +132,12 @@
     CameraTVC *cell = [tableView dequeueReusableCellWithIdentifier:reid];
     
     if(cell == nil){
-         cell= [[CameraTVC alloc]initWithIntNum:indexPath.section row:indexPath.row];;
+        cell= [[CameraTVC alloc]initWithIntNum:indexPath.section row:indexPath.row];
+        cell.device = self.deviceResult.devices[indexPath.row];
     }
+    
+    
+
     
     cell.selectionStyle = UITableViewCellEditingStyleNone;
     cell.btnDelegate = self;

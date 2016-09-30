@@ -59,9 +59,61 @@
 
 - (IBAction)submit:(id)sender {
     //提交页面
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
+    NSString *imei = self.NumTextField.text;
+    NSString *pwd = self.PwdTextField.text;
+    //获取当前时间戳
+    NSString *timestamp = [GLTools timestamp];
+    NSLog(@"%@",timestamp);
+    //md5加密
+    NSString *encryped_password = [GLTools md5:[pwd stringByAppendingString:timestamp]];
+   
+    
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:code,@"persistence_code",imei,@"imei",encryped_password,@"encryped_password",@"bind",@"action",timestamp,@"timestamp",nil];
+    
+    if([self.NumTextField.text isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入设备号"];
+        [self dissmis];
+    }else if([self.PwdTextField.text isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+        [self dissmis];
+    }else{
+        
+        [manager POST:@"http://reiniot.shangjinxin.net/api/user/bind-device" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *res = (NSDictionary *)responseObject;
+            if([res objectForKey:@"device"] != nil){
+                [SVProgressHUD showSuccessWithStatus:@"绑定成功"];
+                [self dissmis];
+                [self.navigationController popViewControllerAnimated:YES];
+            }else{
+                [SVProgressHUD showSuccessWithStatus:@"绑定失败"];
+                [self dissmis];
+                
+            }
+            
+            
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // NSLog(@"失败%@",error);
+            
+            [SVProgressHUD showErrorWithStatus:failTipe];
+        }];
+        
+        
+    }
+    
+    
+
+    
     
 }
 
+-(void)dissmis{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
+}
 
 #pragma mark - getter
 /**

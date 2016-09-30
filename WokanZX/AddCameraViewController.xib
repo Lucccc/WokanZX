@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCameraViewController">
@@ -18,7 +19,6 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入序列号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7kL-Ug-qMK" customClass="GLtextField">
-                    <rect key="frame" x="20" y="163" width="296" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="9xS-fe-SbQ"/>
                         <constraint firstAttribute="height" constant="30" id="QA7-CI-u2x"/>
@@ -32,14 +32,12 @@
                     </variation>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU0-SS-4S9" userLabel="分割线上">
-                    <rect key="frame" x="20" y="200" width="335" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="AEp-lq-Svl"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9L-75-LBP">
-                    <rect key="frame" x="319" y="164" width="41" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="41" id="4vU-g3-nDy"/>
                         <constraint firstAttribute="height" constant="31" id="zHO-mA-xGK"/>
@@ -50,29 +48,25 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="摄像机的底部的标签有每个机器的序列号，请输入，也可以用二维码扫描，实现自动输入。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNu-a8-TsM" userLabel="摄像机底部">
-                    <rect key="frame" x="20" y="211.5" width="335" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zk-Fy-8Ie" userLabel="分割线下">
-                    <rect key="frame" x="20" y="318" width="335" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="aZN-L8-UIY"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="摄像机的初始密码为123456，为了您的隐私和信息安全，我们强烈的建议您修改初始密码。可以通过网线连接到摄像设备对密码进行修改。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xg-GX-GVa" userLabel="初始密码1234">
-                    <rect key="frame" x="20" y="327" width="335" height="63"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="SgY-0O-8FU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-Nv-bD5" customClass="GLButton">
-                    <rect key="frame" x="220" y="431" width="135" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="135" id="LT3-Tn-ODk"/>
                     </constraints>
@@ -82,14 +76,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i6-HR-KQG" customClass="GLWhiteButton">
-                    <rect key="frame" x="20" y="431" width="135" height="30"/>
                     <state key="normal" title="取消"/>
                     <connections>
                         <action selector="cancelView:" destination="-1" eventType="touchUpInside" id="zYd-zY-pvc"/>
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-k3-nwb" customClass="GLtextField">
-                    <rect key="frame" x="20" y="280" width="296" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="904-Qw-WWu"/>
                     </constraints>
@@ -97,7 +89,7 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="IcB-Nv-bD5" firstAttribute="baseline" secondItem="5i6-HR-KQG" secondAttribute="baseline" id="0Cr-da-A9B"/>
                 <constraint firstItem="7kL-Ug-qMK" firstAttribute="leading" secondItem="Xf6-k3-nwb" secondAttribute="leading" id="7FE-Z8-jFS"/>
@@ -108,7 +100,7 @@
                 <constraint firstItem="9Xg-GX-GVa" firstAttribute="trailing" secondItem="BNu-a8-TsM" secondAttribute="trailing" id="JmS-h5-Jty"/>
                 <constraint firstItem="7kL-Ug-qMK" firstAttribute="leading" secondItem="BNu-a8-TsM" secondAttribute="leading" id="Nna-zy-g2W"/>
                 <constraint firstItem="9Xg-GX-GVa" firstAttribute="trailing" secondItem="0zk-Fy-8Ie" secondAttribute="trailing" id="OOJ-et-YBq"/>
-                <constraint firstItem="9Xg-GX-GVa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="327" id="Omh-I3-VmD"/>
+                <constraint firstItem="9Xg-GX-GVa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="250" id="Omh-I3-VmD"/>
                 <constraint firstItem="7kL-Ug-qMK" firstAttribute="leading" secondItem="5i6-HR-KQG" secondAttribute="leading" id="Tob-hJ-rE6"/>
                 <constraint firstItem="xU0-SS-4S9" firstAttribute="top" secondItem="7kL-Ug-qMK" secondAttribute="bottom" constant="7" id="ZrG-BE-wvw"/>
                 <constraint firstAttribute="trailing" secondItem="xU0-SS-4S9" secondAttribute="trailing" constant="20" id="aM1-aS-IsL"/>
@@ -119,15 +111,14 @@
                 <constraint firstItem="5i6-HR-KQG" firstAttribute="top" secondItem="9Xg-GX-GVa" secondAttribute="bottom" constant="41" id="gsV-MO-Xfg"/>
                 <constraint firstItem="9Xg-GX-GVa" firstAttribute="trailing" secondItem="IcB-Nv-bD5" secondAttribute="trailing" id="iu4-oc-aeK"/>
                 <constraint firstItem="p9L-75-LBP" firstAttribute="leading" secondItem="7kL-Ug-qMK" secondAttribute="trailing" constant="3" id="kgo-yC-Jih"/>
-                <constraint firstItem="Xf6-k3-nwb" firstAttribute="top" secondItem="BNu-a8-TsM" secondAttribute="bottom" constant="35" id="n33-N0-GFJ"/>
+                <constraint firstItem="Xf6-k3-nwb" firstAttribute="top" secondItem="BNu-a8-TsM" secondAttribute="bottom" constant="10" id="n33-N0-GFJ"/>
                 <constraint firstItem="7kL-Ug-qMK" firstAttribute="leading" secondItem="0zk-Fy-8Ie" secondAttribute="leading" id="ne3-3K-JgG"/>
-                <constraint firstItem="xU0-SS-4S9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="o5O-0Q-mqX"/>
+                <constraint firstItem="xU0-SS-4S9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="o5O-0Q-mqX"/>
                 <constraint firstAttribute="trailing" secondItem="p9L-75-LBP" secondAttribute="trailing" constant="15" id="pBf-TP-QQK"/>
                 <constraint firstItem="IcB-Nv-bD5" firstAttribute="leading" secondItem="5i6-HR-KQG" secondAttribute="trailing" constant="65" id="pyX-UG-yec"/>
                 <constraint firstItem="0zk-Fy-8Ie" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="sx1-pS-Wbg"/>
                 <constraint firstItem="9Xg-GX-GVa" firstAttribute="trailing" secondItem="xU0-SS-4S9" secondAttribute="trailing" id="veY-6u-4oG"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
     <resources>

@@ -16,10 +16,12 @@
 
 @end
 
+@class Device;
 @interface CameraTVC : UITableViewCell
 //  声明一个delegate的变量，用来引用btnClickedDelegate中的方法
 @property (nonatomic,weak) id<btnClickedDelegate>  btnDelegate;
 @property(nonatomic,strong)UIView *btnView;
+@property(nonatomic,strong)Device *device;
 
 -(instancetype)initWithIntNum:(NSInteger)section row:(NSInteger)row;
 @end
