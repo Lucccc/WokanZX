@@ -58,6 +58,8 @@
 }
 + (void)showAlertWithStr:(NSString *)message{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil  cancelButtonTitle:nil otherButtonTitles:nil];
+    //UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    
     [alert show];
     
     [self performSelector:@selector(dimissAlert:) withObject:alert afterDelay:2.0];
