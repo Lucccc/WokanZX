@@ -182,10 +182,10 @@
     btn.selected = !btn.selected;
     if (btn.selected) {
         [self.player setVolume:0];
-        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_novoice"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_voice"] forState:UIControlStateNormal];
     }else{
         [self.player setVolume:1];
-        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_voice"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_novoice"] forState:UIControlStateNormal];
     }
     
     

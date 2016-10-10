@@ -276,10 +276,10 @@
     btn.selected = !btn.selected;
     if (btn.selected) {
         [self.player setVolume:0];
-        [btn setImage:[UIImage imageNamed:@"onlive_fullscree_voice"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"onlive_fullscree_novoice"] forState:UIControlStateNormal];
     }else{
         [self.player setVolume:1];
-        [btn setImage:[UIImage imageNamed:@"onlive_fullscree_novoice"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"onlive_fullscree_voice"] forState:UIControlStateNormal];
     }
     
     
@@ -630,7 +630,7 @@
 
 -(void)bigBtnClick{
     NSLog(@"big");
-    NSDictionary *dic = @{@"type":@"2",@"data":@"6"};
+    NSDictionary *dic = @{@"type":@"2",@"data":@"5"};
     [self Httplogin:dic];
 }
 
@@ -660,6 +660,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self.player stop];
+    
     if([[UIDevice currentDevice]respondsToSelector:@selector(setOrientation:)]) {
         
         SEL selector = NSSelectorFromString(@"setOrientation:");
