@@ -41,7 +41,7 @@
         if([res objectForKey:@"device"] != nil){
             [SVProgressHUD showSuccessWithStatus:@"解除绑定成功"];
             [self dissmis];
-            
+            self.homeVCblock();
             [self.navigationController popViewControllerAnimated:YES];
             
         }else{

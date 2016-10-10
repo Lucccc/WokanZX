@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *PwdTextField;
 @property (nonatomic, strong) LXDScanView * scanView;
 
+
 @end
 
 @implementation AddCameraViewController
@@ -85,7 +86,10 @@
             if([res objectForKey:@"device"] != nil){
                 [SVProgressHUD showSuccessWithStatus:@"绑定成功"];
                 [self dissmis];
+                
+                self.homeVCblock();
                 [self.navigationController popViewControllerAnimated:YES];
+                
             }else{
                 [SVProgressHUD showSuccessWithStatus:@"绑定失败"];
                 [self dissmis];

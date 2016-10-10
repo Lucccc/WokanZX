@@ -10,6 +10,7 @@
 #import "Device.h"
 
 @interface SetViewController : UIViewController
+@property(nonatomic,copy)void(^homeVCblock)();
 
 -(void)initwithRtmp:(Device *)device;
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddCameraViewController : UIViewController
+@property(nonatomic,copy)void(^homeVCblock)();
 
 @end

@@ -23,12 +23,16 @@
 @property(nonatomic,strong)NSMutableArray *devices;
 @property(nonatomic ,copy)NSString *rtmp;
 
+
 @end
 
 @implementation HomeViewController
 
 
 
+//-(void)viewWillAppear:(BOOL)animated{
+//   [self setupRefresh];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -227,7 +231,9 @@
     
     SetViewController *setVC = [[SetViewController alloc]init];
     [setVC initwithRtmp:self.devices[row-1]];
-    
+    setVC.homeVCblock = ^(){
+        [self setupRefresh];
+    };
     UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.backBarButtonItem = bbt;
     [self.navigationController pushViewController:setVC animated:YES];
@@ -245,6 +251,9 @@
     AddCameraViewController *addVC = [[AddCameraViewController alloc]init];
     UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.backBarButtonItem = bbt;
+    addVC.homeVCblock = ^(){
+        [self setupRefresh];
+    };
     [self.navigationController pushViewController:addVC animated:YES];
 }
 
