@@ -161,6 +161,11 @@
     NSLog(@"点击到------%ld",index);
 }
 
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

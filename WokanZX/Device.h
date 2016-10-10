@@ -38,13 +38,9 @@
 
 @property(nonatomic, copy)NSString *name;
 
-@property(nonatomic, copy)NSString *bind_password;
-
 @property(nonatomic, copy)NSString *is_online;
 
-@property(nonatomic, copy)NSString *stream_id;
-
-@property(nonatomic, copy)NSString *stream_key;
+@property(nonatomic, copy)NSString *snapshot;
 
 
 

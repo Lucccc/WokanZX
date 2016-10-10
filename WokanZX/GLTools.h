@@ -17,4 +17,7 @@
 
 +(NSString *)timestamp;
 
+//字典转json
++(NSString*)dictionaryToJson:(NSDictionary *)dic;
+
 @end

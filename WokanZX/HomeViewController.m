@@ -12,18 +12,20 @@
 #import "LiveViewController.h"
 #import "Device.h"
 #import "DeviceResult.h"
+#import "SetViewController.h"
+#import "ReplayViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,btnClickedDelegate>
 
 @property(nonatomic,assign)NSInteger index;
 @property(nonatomic,weak)UITableView *tableview;
 
-@property(nonatomic,strong)DeviceResult *deviceResult;
+@property(nonatomic,strong)NSMutableArray *devices;
+@property(nonatomic ,copy)NSString *rtmp;
 
 @end
 
 @implementation HomeViewController
-
 
 
 
@@ -98,7 +100,13 @@
     
     
     [manager POST:@"http://reiniot.shangjinxin.net/api/user/devices" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.deviceResult = [DeviceResult mj_objectWithKeyValues:responseObject];
+         self.devices = [Device mj_objectArrayWithKeyValuesArray:responseObject];
+       
+        if(self.devices.count == 0){
+            [SVProgressHUD showInfoWithStatus:@"请绑定摄像头"];
+            [self dissmis];
+            [self addCamera];
+        }
         
         
         [self.tableview reloadData];
@@ -116,10 +124,15 @@
 }
 
 
+-(void)dissmis{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.deviceResult.devices.count;
+    return self.devices.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -133,7 +146,7 @@
     
     if(cell == nil){
         cell= [[CameraTVC alloc]initWithIntNum:indexPath.section row:indexPath.row];
-        cell.device = self.deviceResult.devices[indexPath.row];
+        cell.device = self.devices[indexPath.row];
     }
     
     
@@ -158,35 +171,35 @@
 
 -(void)liveBtnClicked:(NSInteger)section row:(NSInteger)row{
     
+//    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+//    NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
+//    
+//    Device *dev = self.deviceResult.devices[row-1];
+//    
+//    NSString *imei = dev.imei;
+//    
+//    //NSLog(@"11111111111111111111imei%@",imei);
+//    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:imei,@"imei",code,@"persistence_code", nil];
+//    [manager POST:@"http://reiniot.shangjinxin.net/api/user/pull-info" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSDictionary *resdict =(NSDictionary *)responseObject;
+//        
+//        self.rtmp = [resdict objectForKey: @"ORIGIN"];
     
-    if ([USERDEFAULT objectForKey:@"ORIGIN"] != nil) {
-        NSLog(@"%s",__func__);
-        NSLog(@"第%ld块%ld行被点击",section,row);
+        // NSLog(@"%s",__func__);
+        //NSLog(@"第%ld块%ld行被点击",section,row);
         LiveViewController *liveVC = [[LiveViewController alloc]init];
+        [liveVC initwithRtmp:self.rtmp];
+        
         UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
         self.navigationItem.backBarButtonItem = bbt;
         [self.navigationController pushViewController:liveVC animated:YES];
-    }else{
-        AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
-        NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
-        NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:@"test00000000001",@"imei",code,@"persistence_code", nil];
-        [manager POST:@"http://reiniot.shangjinxin.net/api/user/pull-info" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSDictionary *resdict =(NSDictionary *)responseObject;
-            
-            [USERDEFAULT setObject:[resdict objectForKey:@"ORIGIN"] forKey:@"ORIGIN"];
-            NSLog(@"%s",__func__);
-            NSLog(@"第%ld块%ld行被点击",section,row);
-            LiveViewController *liveVC = [[LiveViewController alloc]init];
-            UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
-            self.navigationItem.backBarButtonItem = bbt;
-            [self.navigationController pushViewController:liveVC animated:YES];
-            
-            // NSLog(@"发送成功%@",responseObject);
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            // NSLog(@"失败%@",error);
-            [SVProgressHUD showErrorWithStatus:failTipe];
-        }];
-    }
+        
+        // NSLog(@"发送成功%@",responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // NSLog(@"失败%@",error);
+//        [SVProgressHUD showErrorWithStatus:failTipe];
+//    }];
+
     
     
 
@@ -197,12 +210,29 @@
 -(void)replayBtnClicked:(NSInteger)section row:(NSInteger)row{
     NSLog(@"%s",__func__);
     NSLog(@"第%ld块%ld行被点击",section,row);
+    ReplayViewController *replayVC = [[ReplayViewController alloc]init];
+    [replayVC initwithRtmp:self.rtmp];
+    
+    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = bbt;
+    [self.navigationController pushViewController:replayVC animated:YES];
+    
+    
     
 }
 
 -(void)setBtnClicked:(NSInteger)section row:(NSInteger)row{
     NSLog(@"%s",__func__);
     NSLog(@"第%ld块%ld行被点击",section,row);
+    
+    SetViewController *setVC = [[SetViewController alloc]init];
+    [setVC initwithRtmp:self.devices[row-1]];
+    
+    UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = bbt;
+    [self.navigationController pushViewController:setVC animated:YES];
+    
+    
 }
 - (void)showMenu
 {

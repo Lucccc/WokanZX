@@ -69,27 +69,23 @@
                         </mask>
                     </variation>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="点击" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5O-Kn-uoP">
-                    <frame key="frameInset" minX="16" minY="164" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5O-Kn-uoP">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="XbV-Du-fWt"/>
+                        <constraint firstAttribute="width" constant="42" id="ekA-Ku-jMR"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSt-fV-WB7">
-                    <frame key="frameInset" minX="58" minY="164" width="93" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSt-fV-WB7">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="gD6-6R-YAp"/>
+                        <constraint firstAttribute="width" constant="93" id="hUH-CQ-ebY"/>
+                    </constraints>
                     <state key="normal" title="更换手机号"/>
                     <connections>
                         <action selector="ChangeNum:" destination="-1" eventType="touchUpInside" id="nfd-J1-WmB"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nK2-ZK-bvN" customClass="GLButton">
-                    <frame key="frameInset" minX="16" minY="193" width="342" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="退出当前账号"/>
-                    <connections>
-                        <action selector="SignOut:" destination="-1" eventType="touchUpInside" id="ZGN-Jf-Tvu"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3P-Le-8E7">
@@ -100,17 +96,33 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nK2-ZK-bvN" customClass="GLButton">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="a6A-1J-7y1"/>
+                    </constraints>
+                    <state key="normal" title="退出当前账号"/>
+                    <connections>
+                        <action selector="SignOut:" destination="-1" eventType="touchUpInside" id="ZGN-Jf-Tvu"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6qy-A3-gz3" firstAttribute="bottom" secondItem="l3P-Le-8E7" secondAttribute="bottom" id="52h-ZM-jN7"/>
+                <constraint firstItem="nK2-ZK-bvN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Crp-aZ-Gz1"/>
                 <constraint firstItem="l3P-Le-8E7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="MoX-si-CZl"/>
                 <constraint firstItem="6qy-A3-gz3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="108" id="OzL-tC-ees"/>
+                <constraint firstItem="nK2-ZK-bvN" firstAttribute="top" secondItem="mSt-fV-WB7" secondAttribute="bottom" constant="35" id="VaC-Ym-laF"/>
                 <constraint firstAttribute="trailing" secondItem="l3P-Le-8E7" secondAttribute="trailing" constant="20" id="YrL-hQ-Y8I"/>
                 <constraint firstItem="6qy-A3-gz3" firstAttribute="bottom" secondItem="l3P-Le-8E7" secondAttribute="bottom" id="a4J-vJ-mB9"/>
-                <constraint firstItem="l3P-Le-8E7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="hLB-pe-d9p"/>
+                <constraint firstItem="mSt-fV-WB7" firstAttribute="leading" secondItem="E5O-Kn-uoP" secondAttribute="trailing" constant="20" id="bMa-R0-inV"/>
+                <constraint firstItem="E5O-Kn-uoP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ffy-Tw-d9J"/>
+                <constraint firstItem="l3P-Le-8E7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="hLB-pe-d9p"/>
                 <constraint firstAttribute="trailing" secondItem="6qy-A3-gz3" secondAttribute="trailing" id="iEX-pT-SaX"/>
                 <constraint firstItem="6qy-A3-gz3" firstAttribute="bottom" secondItem="l3P-Le-8E7" secondAttribute="bottom" constant="10" id="iVd-2a-n0v"/>
+                <constraint firstItem="mSt-fV-WB7" firstAttribute="top" secondItem="6qy-A3-gz3" secondAttribute="bottom" constant="10" id="p2R-Xg-Fo2"/>
+                <constraint firstAttribute="trailing" secondItem="nK2-ZK-bvN" secondAttribute="trailing" constant="20" id="t4E-1p-uvv"/>
+                <constraint firstItem="E5O-Kn-uoP" firstAttribute="top" secondItem="6qy-A3-gz3" secondAttribute="bottom" constant="10" id="yrq-g8-xBM"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

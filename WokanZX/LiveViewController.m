@@ -10,10 +10,19 @@
 #import "fullScreenVC.h"
 
 @interface LiveViewController ()
+@property(nonatomic ,copy)NSString *rtmp;
 
 @end
 
 @implementation LiveViewController
+
+
+
+-(void)initwithRtmp:(NSString *)rtmp{
+    
+    self.rtmp = rtmp;
+   
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,10 +35,10 @@
     PLPlayerOption *option = [PLPlayerOption defaultOption];
     [option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
     //rtmp://live.hkstv.hk.lxdns.com/live/hks
-    //NSURL *url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
-    //NSURL *url = [NSURL URLWithString:@"rtmp://pili-live-rtmp.reiniot.shangjinxin.net/reiniot/test00000000001"];
-    NSString *rtmp = [USERDEFAULT objectForKey:@"ORIGIN"];
-    NSURL *url = [NSURL URLWithString:rtmp];
+    NSURL *url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+   // NSURL *url = [NSURL URLWithString:@"rtmp://pili-live-rtmp.reiniot.shangjinxin.net/reiniot/imei?key=50cf452b9d872f58"];
+//    NSString *rtmp = [USERDEFAULT objectForKey:@"ORIGIN"];
+    //NSURL *url = [NSURL URLWithString:self.rtmp];
     self.player = [PLPlayer playerWithURL:url option:option];
     self.player.delegate = self;
     
@@ -56,6 +65,9 @@
     
     //播放
     [self.player play];
+    
+    
+    
 
     UIView *btnView = [[UIView alloc]init];
     btnView.backgroundColor = [UIColor darkGrayColor];
@@ -105,7 +117,7 @@
     
     
     UIButton *voiceBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    [voiceBtn setImage:[UIImage imageNamed:@"onlive_smallscreen_novoice"] forState:UIControlStateNormal];
+    [voiceBtn setImage:[UIImage imageNamed:@"onlive_smallscreen_voice"] forState:UIControlStateNormal];
     [btnView addSubview:voiceBtn];
     [voiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(btnView.mas_centerY);
@@ -146,10 +158,10 @@
     btn.selected = !btn.selected;
     if (btn.selected) {
         [self.player setVolume:0];
-        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_voice"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_novoice"] forState:UIControlStateNormal];
     }else{
         [self.player setVolume:1];
-        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_novoice"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"onlive_smallscreen_voice"] forState:UIControlStateNormal];
     }
 
     

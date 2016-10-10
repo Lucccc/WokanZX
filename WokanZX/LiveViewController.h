@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <PLPlayerKit/PLPlayerKit.h>
 
+
 @interface LiveViewController : UIViewController<PLPlayerDelegate>
 
 @property (nonatomic, strong) PLPlayer  *player;
+
+-(void)initwithRtmp:(NSString *)rtmp;
+
 @end

@@ -48,8 +48,8 @@
             
         }];
         
-        
-        UIImageView *CameraImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home_1"]];
+        //此处处理图片
+        UIImageView *CameraImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home_2"]];
         [self.contentView addSubview:CameraImg];
         self.bgimage = CameraImg;
         
@@ -100,14 +100,14 @@
         [replaybtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(btnView);
             make.bottom.equalTo(CameraImg).offset(-15);
-            make.size.mas_equalTo(CGSizeMake(80, 27));
+            make.size.mas_equalTo(CGSizeMake(100, 40));
             
         }];
         
         [livebtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(replaybtn.mas_centerY);
             make.bottom.equalTo(CameraImg).offset(-15);
-            make.size.mas_equalTo(CGSizeMake(80, 27));
+            make.size.mas_equalTo(CGSizeMake(100, 40));
             make.trailing.equalTo(replaybtn.mas_leading).offset(-10);
             
         }];
@@ -115,7 +115,7 @@
         [setbtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(replaybtn.mas_centerY);
             make.bottom.equalTo(CameraImg).offset(-15);
-            make.size.mas_equalTo(CGSizeMake(80, 27));
+            make.size.mas_equalTo(CGSizeMake(100, 40));
             make.leading.equalTo(replaybtn.mas_trailing).offset(10);
             
         }];
@@ -163,6 +163,8 @@
        if (_btnDelegate !=nil &&[_btnDelegate respondsToSelector:@selector(setBtnClicked:row:)]) {
            [self.btnDelegate setBtnClicked:section row:row];
     }
+  
+    
     
 }
 

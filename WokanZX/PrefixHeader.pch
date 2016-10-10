@@ -28,6 +28,8 @@
 #import <MJExtension.h>
 #import <MJRefresh.h>
 #import "GLTools.h"
+#import "MBProgressHUD.h"
+
 
 #define failTipe @"网络开小差了，稍后试试吧"
 

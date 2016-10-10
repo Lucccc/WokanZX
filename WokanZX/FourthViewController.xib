@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FourthViewController">
@@ -16,30 +17,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS9-dM-wDY" userLabel="分割线shang">
-                    <rect key="frame" x="20" y="300" width="335" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="vud-eV-4Vr"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A06-JZ-zKH" userLabel="分割线">
-                    <rect key="frame" x="20" y="349" width="335" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="cgO-Fp-EL0"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本更新" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDp-oM-vZp">
-                    <rect key="frame" x="30" y="316" width="80" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="xfm-fn-hmb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NM-aJ-2eC">
-                    <rect key="frame" x="324" y="311" width="21" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="JRq-4x-4SA"/>
                         <constraint firstAttribute="width" constant="21" id="VMj-yx-3d4"/>
@@ -55,14 +52,13 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_pic" translatesAutoresizingMaskIntoConstraints="NO" id="rse-DP-Rgo">
-                    <rect key="frame" x="102" y="144" width="170" height="116"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="170" id="vJe-4T-Mat"/>
                         <constraint firstAttribute="height" constant="116" id="wfE-lH-7SC"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="A06-JZ-zKH" firstAttribute="top" secondItem="bDp-oM-vZp" secondAttribute="bottom" constant="15" id="72b-SY-aCT"/>
                 <constraint firstItem="A06-JZ-zKH" firstAttribute="top" secondItem="3NM-aJ-2eC" secondAttribute="bottom" constant="10" id="Adp-0y-ILW"/>
@@ -79,11 +75,10 @@
                 <constraint firstItem="AS9-dM-wDY" firstAttribute="top" secondItem="rse-DP-Rgo" secondAttribute="bottom" constant="40" id="nbZ-W1-aHY"/>
                 <constraint firstItem="AS9-dM-wDY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="300" id="okF-Z9-YdZ"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
     <resources>
-        <image name="about_pic" width="79" height="52"/>
-        <image name="about_update_btn" width="14" height="14"/>
+        <image name="about_pic" width="78" height="51"/>
+        <image name="about_update_btn" width="13" height="14"/>
     </resources>
 </document>

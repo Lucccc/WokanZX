@@ -37,7 +37,7 @@
                         <constraint firstAttribute="height" constant="1" id="AEp-lq-Svl"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9L-75-LBP">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9L-75-LBP">
                     <constraints>
                         <constraint firstAttribute="width" constant="41" id="4vU-g3-nDy"/>
                         <constraint firstAttribute="height" constant="31" id="zHO-mA-xGK"/>
@@ -69,6 +69,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-Nv-bD5" customClass="GLButton">
                     <constraints>
                         <constraint firstAttribute="width" constant="135" id="LT3-Tn-ODk"/>
+                        <constraint firstAttribute="height" constant="45" id="O6x-xN-JVM"/>
                     </constraints>
                     <state key="normal" title="提交"/>
                     <connections>
@@ -76,6 +77,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i6-HR-KQG" customClass="GLWhiteButton">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="uRm-H7-Nc2"/>
+                    </constraints>
                     <state key="normal" title="取消"/>
                     <connections>
                         <action selector="cancelView:" destination="-1" eventType="touchUpInside" id="zYd-zY-pvc"/>

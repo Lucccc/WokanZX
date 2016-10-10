@@ -10,12 +10,12 @@
 
 @implementation DeviceResult
 
-+ (NSDictionary *)objectClassInArray
-{
-    return @{
-             @"devices" : @"Device"
-             
-             };
-}
+//+ (NSDictionary *)objectClassInArray
+//{
+//    return @{
+//             @"devices" : @""
+//             
+//             };
+//}
 
 @end

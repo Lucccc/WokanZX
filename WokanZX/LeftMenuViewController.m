@@ -23,8 +23,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"侧边栏bg"]];
+    imageView.layer.cornerRadius = 10;
+    imageView.layer.masksToBounds = YES;
+    [self.view addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        //make.edges.mas_offset(UIEdgeInsetsMake(10, 0, 300, 0));
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.size.height.mas_equalTo(300);
+        make.top.mas_equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+    }];
+    
+    UIImageView *logView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"start_tittle"]];
+    [self.view addSubview:logView];
+    [logView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(imageView.mas_bottom).offset(30);
+        make.size.mas_equalTo(CGSizeMake(180, 35));
+        make.left.equalTo(self.view.mas_left).offset(20);
+    }];
+    
+    
+    
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 1.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;

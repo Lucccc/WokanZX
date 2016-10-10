@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1814A4C71D9EC9CF00304CAB /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814A4C51D9EC9CF00304CAB /* SetViewController.m */; };
+		1814A4C81D9EC9CF00304CAB /* SetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1814A4C61D9EC9CF00304CAB /* SetViewController.xib */; };
 		18226CB81D7E8CA400234092 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CB71D7E8CA400234092 /* FirstViewController.m */; };
 		18226CBE1D7E8CF500234092 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CBD1D7E8CF500234092 /* LeftMenuViewController.m */; };
 		18226CC11D7E8D1700234092 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC01D7E8D1700234092 /* SecondViewController.m */; };
 		18226CC41D7EB4A600234092 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC31D7EB4A600234092 /* ThirdViewController.m */; };
 		18226CC71D7EC86E00234092 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18226CC61D7EC86E00234092 /* FourthViewController.m */; };
 		18226CC91D7ED55E00234092 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18226CC81D7ED55E00234092 /* FirstViewController.xib */; };
+		182470CB1DA7BDD800B8B34B /* LGSoundRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 182470CA1DA7BDD800B8B34B /* LGSoundRecorder.m */; };
+		182470D61DA80D8200B8B34B /* voice_message_sent.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 182470D51DA80D8200B8B34B /* voice_message_sent.mp3 */; };
+		182470E01DA94E1700B8B34B /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 182470DF1DA94E1700B8B34B /* libmp3lame.a */; };
 		1847A72B1D9E5C86009863CE /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847A72A1D9E5C86009863CE /* Device.m */; };
 		1847A72E1D9E680F009863CE /* DeviceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847A72D1D9E680F009863CE /* DeviceResult.m */; };
 		1847A7311D9E8770009863CE /* GLTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847A7301D9E8770009863CE /* GLTools.m */; };
@@ -40,6 +45,9 @@
 		18911A5B1D8E764A00643CEE /* AddCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18911A591D8E764A00643CEE /* AddCameraViewController.xib */; };
 		18C80A381D7F0A7000867E39 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A371D7F0A7000867E39 /* SecondViewController.xib */; };
 		18C80A3A1D7F112B00867E39 /* FourthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80A391D7F112B00867E39 /* FourthViewController.xib */; };
+		18D824001DAB877200BD0290 /* ReplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D823FF1DAB877200BD0290 /* ReplayViewController.m */; };
+		18D824031DAB886100BD0290 /* RepalyfullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D824021DAB886100BD0290 /* RepalyfullScreenViewController.m */; };
+		18D824061DAB8F1300BD0290 /* ZVScrollSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D824051DAB8F1300BD0290 /* ZVScrollSlider.m */; };
 		18DDA16C1D855E7A00066A7D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DDA16A1D855E7A00066A7D /* HomeViewController.m */; };
 		18DDA2071D85BEAF00066A7D /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DDA1F41D85BEAF00066A7D /* UIButton+Extension.m */; };
 		18DDA2081D85BEAF00066A7D /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DDA1F61D85BEAF00066A7D /* UIImageView+Extension.m */; };
@@ -79,6 +87,9 @@
 
 /* Begin PBXFileReference section */
 		00F487D4E4A4238D82A9A0E9 /* libPods-WokanZX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WokanZX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1814A4C41D9EC9CF00304CAB /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		1814A4C51D9EC9CF00304CAB /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		1814A4C61D9EC9CF00304CAB /* SetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetViewController.xib; sourceTree = "<group>"; };
 		18226CB61D7E8CA400234092 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		18226CB71D7E8CA400234092 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		18226CBC1D7E8CF500234092 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
@@ -90,6 +101,11 @@
 		18226CC51D7EC86E00234092 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		18226CC61D7EC86E00234092 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		18226CC81D7ED55E00234092 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		182470C91DA7BDD800B8B34B /* LGSoundRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSoundRecorder.h; sourceTree = "<group>"; };
+		182470CA1DA7BDD800B8B34B /* LGSoundRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSoundRecorder.m; sourceTree = "<group>"; };
+		182470D51DA80D8200B8B34B /* voice_message_sent.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice_message_sent.mp3; sourceTree = "<group>"; };
+		182470DE1DA94E1700B8B34B /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		182470DF1DA94E1700B8B34B /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		1847A7291D9E5C86009863CE /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		1847A72A1D9E5C86009863CE /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		1847A72C1D9E680F009863CE /* DeviceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceResult.h; sourceTree = "<group>"; };
@@ -135,6 +151,12 @@
 		18911A591D8E764A00643CEE /* AddCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCameraViewController.xib; sourceTree = "<group>"; };
 		18C80A371D7F0A7000867E39 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		18C80A391D7F112B00867E39 /* FourthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthViewController.xib; sourceTree = "<group>"; };
+		18D823FE1DAB877200BD0290 /* ReplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplayViewController.h; sourceTree = "<group>"; };
+		18D823FF1DAB877200BD0290 /* ReplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplayViewController.m; sourceTree = "<group>"; };
+		18D824011DAB886100BD0290 /* RepalyfullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepalyfullScreenViewController.h; sourceTree = "<group>"; };
+		18D824021DAB886100BD0290 /* RepalyfullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepalyfullScreenViewController.m; sourceTree = "<group>"; };
+		18D824041DAB8F1300BD0290 /* ZVScrollSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZVScrollSlider.h; sourceTree = "<group>"; };
+		18D824051DAB8F1300BD0290 /* ZVScrollSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZVScrollSlider.m; sourceTree = "<group>"; };
 		18DDA1691D855E7A00066A7D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		18DDA16A1D855E7A00066A7D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		18DDA1F31D85BEAF00066A7D /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
@@ -182,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FDFA79362B18A0DD47B39E /* libPods-WokanZX.a in Frameworks */,
+				182470E01DA94E1700B8B34B /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,9 +225,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182470D71DA93CE100B8B34B /* lame */ = {
+			isa = PBXGroup;
+			children = (
+				182470DE1DA94E1700B8B34B /* lame.h */,
+				182470DF1DA94E1700B8B34B /* libmp3lame.a */,
+			);
+			path = lame;
+			sourceTree = "<group>";
+		};
 		188B8B581D884ED000A45DC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18D824041DAB8F1300BD0290 /* ZVScrollSlider.h */,
+				18D824051DAB8F1300BD0290 /* ZVScrollSlider.m */,
 				188B8B591D884F0200A45DC1 /* GLButton.h */,
 				188B8B5A1D884F0200A45DC1 /* GLButton.m */,
 				188F2F391D8EA35700F17DC7 /* GLWhiteButton.h */,
@@ -297,6 +331,8 @@
 		18DCBCA31D7E828F0065A7EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				182470C91DA7BDD800B8B34B /* LGSoundRecorder.h */,
+				182470CA1DA7BDD800B8B34B /* LGSoundRecorder.m */,
 				18226CBC1D7E8CF500234092 /* LeftMenuViewController.h */,
 				18226CBD1D7E8CF500234092 /* LeftMenuViewController.m */,
 				18DDA1691D855E7A00066A7D /* HomeViewController.h */,
@@ -305,6 +341,13 @@
 				186C6BB11D94DA6600979ED0 /* LiveViewController.m */,
 				186C6BBC1D9586DC00979ED0 /* fullScreenVC.h */,
 				186C6BBD1D9586DC00979ED0 /* fullScreenVC.m */,
+				1814A4C41D9EC9CF00304CAB /* SetViewController.h */,
+				1814A4C51D9EC9CF00304CAB /* SetViewController.m */,
+				1814A4C61D9EC9CF00304CAB /* SetViewController.xib */,
+				18D823FE1DAB877200BD0290 /* ReplayViewController.h */,
+				18D823FF1DAB877200BD0290 /* ReplayViewController.m */,
+				18D824011DAB886100BD0290 /* RepalyfullScreenViewController.h */,
+				18D824021DAB886100BD0290 /* RepalyfullScreenViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -431,6 +474,8 @@
 		18EF73C31D7DBCB200115966 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				182470D71DA93CE100B8B34B /* lame */,
+				182470D51DA80D8200B8B34B /* voice_message_sent.mp3 */,
 				18DDA1FC1D85BEAF00066A7D /* ForgetPassWordVCNew.h */,
 				18DDA1FD1D85BEAF00066A7D /* ForgetPassWordVCNew.m */,
 				18DDA1FE1D85BEAF00066A7D /* LoginVCNew.h */,
@@ -594,12 +639,14 @@
 				18226CC91D7ED55E00234092 /* FirstViewController.xib in Resources */,
 				1863250A1D901A1700BDA274 /* ForgetPwdVC.xib in Resources */,
 				18C80A3A1D7F112B00867E39 /* FourthViewController.xib in Resources */,
+				1814A4C81D9EC9CF00304CAB /* SetViewController.xib in Resources */,
 				1852B99F1D91214D006E5AA6 /* RegisterVC2.xib in Resources */,
 				1852B9A41D913793006E5AA6 /* ForgetPwdVC2.xib in Resources */,
 				186559F21D92A0E200ED5AA5 /* CameraTableViewCell.xib in Resources */,
 				186325051D9019FA00BDA274 /* RegisterVC.xib in Resources */,
 				18C80A381D7F0A7000867E39 /* SecondViewController.xib in Resources */,
 				18911A5B1D8E764A00643CEE /* AddCameraViewController.xib in Resources */,
+				182470D61DA80D8200B8B34B /* voice_message_sent.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +722,7 @@
 				18DDA2181D85CAA400066A7D /* ZLScrolling.m in Sources */,
 				18226CC11D7E8D1700234092 /* SecondViewController.m in Sources */,
 				18DDA20C1D85BEAF00066A7D /* LoginVCNew.m in Sources */,
+				18D824061DAB8F1300BD0290 /* ZVScrollSlider.m in Sources */,
 				18EF73C81D7DBCB200115966 /* AppDelegate.m in Sources */,
 				18226CC41D7EB4A600234092 /* ThirdViewController.m in Sources */,
 				18DDA20F1D85BEAF00066A7D /* SHInvoker.m in Sources */,
@@ -699,14 +747,18 @@
 				188F2F3B1D8EA35700F17DC7 /* GLWhiteButton.m in Sources */,
 				18226CC71D7EC86E00234092 /* FourthViewController.m in Sources */,
 				18EF73C51D7DBCB200115966 /* main.m in Sources */,
+				182470CB1DA7BDD800B8B34B /* LGSoundRecorder.m in Sources */,
 				18DDA20B1D85BEAF00066A7D /* ForgetPassWordVCNew.m in Sources */,
+				18D824031DAB886100BD0290 /* RepalyfullScreenViewController.m in Sources */,
 				186324FB1D8FE0D800BDA274 /* LXDScanView.m in Sources */,
 				1847A72E1D9E680F009863CE /* DeviceResult.m in Sources */,
 				18911A5A1D8E764A00643CEE /* AddCameraViewController.m in Sources */,
 				18DDA2071D85BEAF00066A7D /* UIButton+Extension.m in Sources */,
 				186C6BAF1D9443C000979ED0 /* CameraTVC.m in Sources */,
+				1814A4C71D9EC9CF00304CAB /* SetViewController.m in Sources */,
 				18DDA16C1D855E7A00066A7D /* HomeViewController.m in Sources */,
 				18DDA2091D85BEAF00066A7D /* UILabel+Extension.m in Sources */,
+				18D824001DAB877200BD0290 /* ReplayViewController.m in Sources */,
 				1847A72B1D9E5C86009863CE /* Device.m in Sources */,
 				186325091D901A1700BDA274 /* ForgetPwdVC.m in Sources */,
 			);
@@ -767,6 +819,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -784,9 +837,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -813,6 +868,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -824,9 +880,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -842,6 +901,10 @@
 				GCC_PREFIX_HEADER = WokanZX/PrefixHeader.pch;
 				INFOPLIST_FILE = WokanZX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WokanZX/lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = luc.WokanZX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -860,6 +923,10 @@
 				GCC_PREFIX_HEADER = WokanZX/PrefixHeader.pch;
 				INFOPLIST_FILE = WokanZX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WokanZX/lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = luc.WokanZX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -872,6 +939,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WokanZXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = luc.WokanZXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WokanZX.app/WokanZX";
@@ -884,6 +952,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WokanZXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = luc.WokanZXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WokanZX.app/WokanZX";
