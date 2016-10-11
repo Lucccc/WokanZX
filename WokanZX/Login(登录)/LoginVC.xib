@@ -65,7 +65,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8N-Ic-RP3" customClass="GLButton">
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="bEq-4l-Jke"/>
+                        <constraint firstAttribute="height" constant="40" id="bEq-4l-Jke"/>
                     </constraints>
                     <state key="normal" title="登录"/>
                     <connections>

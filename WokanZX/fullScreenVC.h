@@ -12,6 +12,9 @@
 
 @interface fullScreenVC : UIViewController<PLPlayerDelegate>
 
-
+@property (nonatomic,copy)void(^LiveVCBlock)(fullScreenVC *);
 @property (nonatomic, strong) PLPlayer  *player;
+
+
+-(void)initwithRtmp:(NSString *)rtmp;
 @end

@@ -10,4 +10,5 @@
 
 @interface RegisterVC2 : UIViewController
 
+-(void)putText:(NSString *)text;
 @end

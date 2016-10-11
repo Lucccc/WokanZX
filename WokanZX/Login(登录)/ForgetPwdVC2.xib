@@ -146,7 +146,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyY-rO-CJX" customClass="GLButton">
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="dqm-G4-frb"/>
+                        <constraint firstAttribute="height" constant="40" id="dqm-G4-frb"/>
                     </constraints>
                     <state key="normal" title="提交"/>
                     <connections>

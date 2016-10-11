@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) PLPlayer  *player;
 
+
 -(void)initwithRtmp:(NSString *)rtmp;
 
 @end

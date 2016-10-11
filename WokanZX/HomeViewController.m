@@ -175,19 +175,19 @@
 
 -(void)liveBtnClicked:(NSInteger)section row:(NSInteger)row{
     
-//    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
-//    NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
-//    
-//    Device *dev = self.deviceResult.devices[row-1];
-//    
-//    NSString *imei = dev.imei;
-//    
-//    //NSLog(@"11111111111111111111imei%@",imei);
-//    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:imei,@"imei",code,@"persistence_code", nil];
-//    [manager POST:@"http://reiniot.shangjinxin.net/api/user/pull-info" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSDictionary *resdict =(NSDictionary *)responseObject;
-//        
-//        self.rtmp = [resdict objectForKey: @"ORIGIN"];
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    NSString *code = [USERDEFAULT objectForKey:@"persistence_code"];
+    
+    Device *dev = self.devices[row-1];
+    
+    NSString *imei = dev.imei;
+    
+    //NSLog(@"11111111111111111111imei%@",imei);
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:imei,@"imei",code,@"persistence_code", nil];
+    [manager POST:@"http://reiniot.shangjinxin.net/api/user/pull-info" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *resdict =(NSDictionary *)responseObject;
+        
+        self.rtmp = [resdict objectForKey: @"ORIGIN"];
     
         // NSLog(@"%s",__func__);
         //NSLog(@"第%ld块%ld行被点击",section,row);
@@ -198,11 +198,11 @@
         self.navigationItem.backBarButtonItem = bbt;
         [self.navigationController pushViewController:liveVC animated:YES];
         
-        // NSLog(@"发送成功%@",responseObject);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        // NSLog(@"失败%@",error);
-//        [SVProgressHUD showErrorWithStatus:failTipe];
-//    }];
+         NSLog(@"发送成功%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // NSLog(@"失败%@",error);
+        [SVProgressHUD showErrorWithStatus:failTipe];
+    }];
 
     
     

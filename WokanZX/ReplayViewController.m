@@ -135,9 +135,12 @@
     [self.view addSubview:ruler];
     [ruler mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width, 80));
+        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width, 57));
         make.top.equalTo(playView.mas_bottom).offset(100);
     }];
+    
+
+    
     
     CGFloat sliderHeight = [ZVScrollSlider heightWithBoundingWidth:self.view.bounds.size.width Title:nil];
     ZVScrollSlider *productSlider  = [[ZVScrollSlider alloc]initWithFrame:CGRectMake(0, 350, self.view.bounds.size.width, sliderHeight)
@@ -151,6 +154,13 @@
     
     [self.view addSubview:productSlider];
     
+    UIImageView *line = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"su"]];
+    [self.view addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.size.mas_equalTo(CGSizeMake(13, 57));
+        make.top.equalTo(ruler);
+    }];
     
 }
 

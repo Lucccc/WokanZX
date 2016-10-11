@@ -23,7 +23,8 @@
 @property (nonatomic,copy)NSString *wavpath;
 @property (nonatomic, weak) NSTimer *timerOf60Second;
 @property (nonatomic, strong) UIButton  *recordButton;
-
+@property(nonatomic ,copy)NSString *rtmp;
+@property (nonatomic, weak) NSTimer *holdplaytimer;
 
 
 
@@ -31,6 +32,10 @@
 @end
 
 @implementation fullScreenVC
+
+-(void)initwithRtmp:(NSString *)rtmp{
+    self.rtmp = rtmp;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,9 +48,10 @@
     [option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
     
     //rtmp://live.hkstv.hk.lxdns.com/live/hks
-    NSURL *url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+    //NSURL *url = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     
     //NSURL *url = [NSURL URLWithString:@"rtmp://pili-live-rtmp.reiniot.shangjinxin.net/reiniot/test00000000001"];
+    NSURL *url = [NSURL URLWithString:self.rtmp];
     self.player = [PLPlayer playerWithURL:url option:option];
     self.player.delegate = self;
        
@@ -70,6 +76,8 @@
     }];
     
     [self.player play];
+    [self holdplay];
+    
     
     //下部按钮view
     UIView *btnView = [[UIView alloc]init];
@@ -250,7 +258,22 @@
     
     
 }
+//player状态改变回调
+-(void)player:(PLPlayer *)player statusDidChange:(PLPlayerStatus)state{
+    if(PLPlayerStatusPlaying){
+        if (_holdplaytimer) {
+            [_holdplaytimer invalidate];
+            _holdplaytimer = nil;
+        }
+        _holdplaytimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(holdplay) userInfo:nil repeats:YES];
+    }
+    
+}
 
+-(void)holdplay{
+    NSDictionary *dic = @{@"type":@"1"};
+    [self Httplogin:dic];
+}
 -(void)cancelfullscreen{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -673,7 +696,10 @@
         [invocation invoke];
     }
     
-    
+    if (_holdplaytimer) {
+        [_holdplaytimer invalidate];
+        _holdplaytimer = nil;
+    }
     
     
 }

@@ -20,17 +20,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
 @property (weak, nonatomic) IBOutlet GLtextField *codeTextField;
 @property (weak, nonatomic) IBOutlet GLtextField *pwdTextField;
+@property (nonatomic, copy) NSString *number;
 
 @end
 
 @implementation RegisterVC2
+
+-(void)putText:(NSString *)text{
+    NSLog(@"%@",text);
+    self.number = text;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = FaColor;
     [self readSecond];
     // Do any additional setup after loading the view from its nib.
-    
+    _numLabel.text = self.number;
     
     //验证提交之后的跑秒提示防止用户的重复提交数据有效时间60秒
     timeCount = 60;
@@ -106,6 +113,17 @@
 - (IBAction)recode:(id)sender {
     //重获验证码
     [self readSecond];
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+    
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:self.number,@"mobile", nil];
+    [manager POST:validate parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+       [SVProgressHUD showErrorWithStatus:@"已发送"];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败%@",error);
+        //[FormValidator showAlertWithStr:@"发送失败"];
+        [SVProgressHUD showErrorWithStatus:@"发送失败"];
+    }];
     
     
     
@@ -113,7 +131,28 @@
 
 - (IBAction)finalRegist:(id)sender {
     //完成注册
+    AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:self.number,@"mobile",self.pwdTextField.text,@"password",_codeTextField.text,@"sms_code",nil];
+    [manager POST:registAccount parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"%@",responseObject);
+        NSDictionary *responseD = (NSDictionary *)responseObject;
+        if ([[responseD  objectForKey:@"status_code"] isEqualToString:@"403"]) {
+            [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+        }else if ([[responseD  objectForKey:@"status_code"] isEqualToString:@"422"]){
+            [SVProgressHUD showErrorWithStatus:@"该用户已经注册"];
+        }else{
+            
+            NSLog(@"--------注册成功啦啦啦啦");
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        
+        [SVProgressHUD showErrorWithStatus:failTipe];
+    }];
     
 }
 

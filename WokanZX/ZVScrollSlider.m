@@ -12,8 +12,8 @@
 #define textRulerFont [UIFont systemFontOfSize:9]
 
 #define dialGap 12
-#define dialLong 40
-#define dialShort 20
+#define dialLong 35
+#define dialShort 18
 
 #import "ZVScrollSlider.h"
 

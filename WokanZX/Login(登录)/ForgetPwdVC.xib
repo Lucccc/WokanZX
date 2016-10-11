@@ -37,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="E8i-Bn-C2G" secondAttribute="bottom" constant="10" id="EzB-Md-iYc"/>
                         <constraint firstItem="h17-A4-G1v" firstAttribute="top" secondItem="FM0-wL-49J" secondAttribute="top" constant="15" id="Fnu-VG-DMy"/>
-                        <constraint firstItem="h17-A4-G1v" firstAttribute="leading" secondItem="FM0-wL-49J" secondAttribute="leading" constant="16" id="HZ7-qT-PVN"/>
+                        <constraint firstItem="h17-A4-G1v" firstAttribute="leading" secondItem="FM0-wL-49J" secondAttribute="leading" constant="30" id="HZ7-qT-PVN"/>
                         <constraint firstAttribute="height" constant="50" id="MQ0-4S-sMF"/>
                         <constraint firstItem="E8i-Bn-C2G" firstAttribute="leading" secondItem="h17-A4-G1v" secondAttribute="trailing" constant="16" id="dzG-ib-eVe"/>
                         <constraint firstItem="E8i-Bn-C2G" firstAttribute="top" secondItem="FM0-wL-49J" secondAttribute="top" constant="10" id="jhg-zF-tk9"/>
@@ -47,7 +47,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-u8-nbN" customClass="GLButton">
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ZsY-DN-MCJ"/>
+                        <constraint firstAttribute="height" constant="40" id="ZsY-DN-MCJ"/>
                     </constraints>
                     <state key="normal" title="获取验证码"/>
                     <connections>

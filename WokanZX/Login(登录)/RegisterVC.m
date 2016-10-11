@@ -55,21 +55,22 @@
         
     }else{
         AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+        
         NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:_phoneTextField.text,@"mobile", nil];
         [manager POST:validate parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSDictionary *dict =(NSDictionary *)responseObject;
-                //NSLog(@"%@",dic);
-             // [self readSecond];
-            Boolean registStr = (Boolean)[dict objectForKey:@"success"];
+            NSString *registStr = @"adsf";
+            NSLog(@"%@",responseObject);
+           
             if(registStr){
-               // [FormValidator showAlertWithStr:@"发送中"];
-                [SVProgressHUD showSuccessWithStatus:@"发送中"];
-                RegisterVC2 *regist=[[RegisterVC2 alloc]init];
-                // [self presentViewController:regist animated:YES completion:nil];
-                UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
-                self.navigationItem.backBarButtonItem = bbt;
-                self.navigationController.navigationBar.hidden = NO;
-                [self.navigationController pushViewController:regist animated:YES];
+//               // [FormValidator showAlertWithStr:@"发送中"];
+//                [SVProgressHUD showSuccessWithStatus:@"发送中"];
+//                RegisterVC2 *regist=[[RegisterVC2 alloc]init];
+//                // [self presentViewController:regist animated:YES completion:nil];
+//                UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+//                self.navigationItem.backBarButtonItem = bbt;
+//                self.navigationController.navigationBar.hidden = NO;
+//                [self.navigationController pushViewController:regist animated:YES];
  
             }else{
             //[FormValidator showAlertWithStr:@"发送失败"];
@@ -77,11 +78,23 @@
             }
             // NSLog(@"发送成功%@",responseObject);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            // NSLog(@"失败%@",error);
-            [FormValidator showAlertWithStr:@"发送失败"];
+             NSLog(@"失败%@",error);
+            //[FormValidator showAlertWithStr:@"发送失败"];
             [SVProgressHUD showErrorWithStatus:@"发送失败"];
         }];
         
+        
+        [SVProgressHUD showSuccessWithStatus:@"发送中"];
+        RegisterVC2 *regist=[[RegisterVC2 alloc]init];
+        [regist putText:_phoneTextField.text];
+       // NSLog(@"%@",_phoneTextField);
+        
+        // [self presentViewController:regist animated:YES completion:nil];
+        UIBarButtonItem *bbt = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+        self.navigationItem.backBarButtonItem = bbt;
+        self.navigationController.navigationBar.hidden = NO;
+        [self.navigationController pushViewController:regist animated:YES];
+
         
     }
 
