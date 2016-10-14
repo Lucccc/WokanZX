@@ -20,4 +20,7 @@
 //字典转json
 +(NSString*)dictionaryToJson:(NSDictionary *)dic;
 
+
+//json转字典
++(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 @end

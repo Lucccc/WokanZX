@@ -48,7 +48,6 @@
     
     playView.backgroundColor = BColor;
     [self.view addSubview:playView];
-    
     [playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(weakSelf.view);
         make.edges.mas_offset(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -63,6 +62,20 @@
     
     [self.player play];
     [self holdplay];
+    
+    
+    //返回按钮
+    UIButton *backBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [self.view addSubview:backBtn];
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.left.mas_equalTo(self.view.mas_left);
+        make.top.mas_equalTo(self.view);
+    }];
+    [backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
     
     //下部按钮view
     UIView *btnView = [[UIView alloc]init];
@@ -374,7 +387,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
+    [self.player stop];
     
     if([[UIDevice currentDevice]respondsToSelector:@selector(setOrientation:)]) {
         

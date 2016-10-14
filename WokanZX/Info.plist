@@ -25,8 +25,12 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>microphoneDesciption</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphoneDesciption</string>
+	<key>NSCameraUsageDescription</key>
+	<string>camerDesciption</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>pototLibraryDesciption</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

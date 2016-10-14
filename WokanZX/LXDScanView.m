@@ -170,7 +170,7 @@ NSString * const LXDScanQRCodeMessageKey = @"LXDScanQRCodeMessageKey";
         textRect.size.height = 25.f;
         
         _remind = [[UILabel alloc] initWithFrame: textRect];
-        _remind.font = [UIFont systemFontOfSize: 15.f * SCREENWIDTH / 375.f];
+        _remind.font = [UIFont systemFontOfSize: 14.f * SCREENWIDTH / 375.f];
         _remind.textColor = [UIColor whiteColor];
         _remind.textAlignment = NSTextAlignmentCenter;
         _remind.text = REMINDTEXT;

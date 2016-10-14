@@ -203,7 +203,7 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.text          = _title;
         _titleLabel.textColor     = [UIColor blackColor];
-        [self addSubview:_titleLabel];
+       // [self addSubview:_titleLabel];
         
         //输入框
         _valueTF                          = [[UITextField alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_titleLabel.frame)+10, frame.size.width, 20)];

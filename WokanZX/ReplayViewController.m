@@ -9,13 +9,25 @@
 #import "ReplayViewController.h"
 #import "RepalyfullScreenViewController.h"
 #import "ZVScrollSlider.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudIM.h>
 
 
 
 
-
-@interface ReplayViewController ()
+@interface ReplayViewController ()<ZVScrollSliderDelegate,AVIMClientDelegate,AVIMSignatureDataSource,AVSessionDelegate,AVSignatureDelegate>
 @property(nonatomic ,copy)NSString *rtmp;
+@property(nonatomic, copy)NSString *timeText;
+@property(nonatomic, assign)int time;
+@property(nonatomic, assign)NSDate *date;
+@property (nonatomic, strong) AVIMClient *client;
+@property (nonatomic,strong )NSDictionary *dict;
+@property (nonatomic,copy)NSString *openWitch;
+@property (nonatomic,strong)AVIMSignature *sig;
+@property(nonatomic, strong)NSDate *minDate;
+@property(nonatomic, strong)NSDate *maxDate;
+@property(nonatomic, strong)UIDatePicker *datepicker;
+
 @end
 
 @implementation ReplayViewController
@@ -29,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //发送观看消息
     
     
     
@@ -67,7 +80,6 @@
     
     //播放
     [self.player play];
-    
     
     
     
@@ -129,21 +141,40 @@
     [voiceBtn addTarget:self action:@selector(voiceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    _datepicker = [[UIDatePicker alloc]init];
+    _datepicker.datePickerMode = UIDatePickerModeDate;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:_datepicker.date];
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    // components.nanosecond = 0 not available in iOS
+    NSTimeInterval ts = (double)(int)[[calendar dateFromComponents:components] timeIntervalSince1970];
+    _date = [NSDate dateWithTimeIntervalSince1970:ts];
+    [self.view addSubview:_datepicker];
+    [_datepicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    [_datepicker mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(300, 80));
+        make.centerX.equalTo(self.view.mas_centerX);
+         make.top.equalTo(playView.mas_bottom).offset(30);
+    }];
+    
    
     
     UIImageView *ruler = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"矩形-3-拷贝-3"]];
+    ruler.userInteractionEnabled = YES;
     [self.view addSubview:ruler];
     [ruler mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width, 57));
-        make.top.equalTo(playView.mas_bottom).offset(100);
+        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width, 54));
+        make.top.equalTo(playView.mas_bottom).offset(150);
     }];
     
-
     
+   // CGFloat rulery = playView.mas_height + 20 + 150;
     
     CGFloat sliderHeight = [ZVScrollSlider heightWithBoundingWidth:self.view.bounds.size.width Title:nil];
-    ZVScrollSlider *productSlider  = [[ZVScrollSlider alloc]initWithFrame:CGRectMake(0, 350, self.view.bounds.size.width, sliderHeight)
+    ZVScrollSlider *productSlider  = [[ZVScrollSlider alloc]initWithFrame:CGRectMake(0, -68, self.view.bounds.size.width, sliderHeight)
                                                                     Title:nil
                                                                  MinValue:0
                                                                  MaxValue:144
@@ -151,8 +182,13 @@
                                                                      Unit:@"点"
                                                              HasDeleteBtn:NO];
     productSlider.alpha = 0.7;
+    productSlider.delegate = self;
+    [ruler addSubview:productSlider];
+  
     
-    [self.view addSubview:productSlider];
+    
+    
+    
     
     UIImageView *line = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"su"]];
     [self.view addSubview:line];
@@ -164,6 +200,25 @@
     
 }
 
+//datepicker响应
+-(void)dateChanged:(id)sender{
+    UIDatePicker *control = (UIDatePicker*)sender;
+    _date = control.date;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:_date];
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    // components.nanosecond = 0 not available in iOS
+    NSTimeInterval ts = (double)(int)[[calendar dateFromComponents:components] timeIntervalSince1970];
+    _date = [NSDate dateWithTimeIntervalSince1970:ts];
+    
+    //时区设置
+//    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+//    NSInteger interval = [zone secondsFromGMTForDate:_date];
+//    _date = [_date dateByAddingTimeInterval:interval];
+    NSLog(@"%@",_date);
+}
 
 -(void)fullscreen{
     RepalyfullScreenViewController *vc = [[RepalyfullScreenViewController alloc]init];
@@ -201,9 +256,173 @@
     
 }
 
+-(void)ZVScrollSlider:(ZVScrollSlider *)slider ValueChange:(int)value{
+    
+    self.time = value;
+    self.timeText = [NSString stringWithFormat:@"%d:%d0",value/6%24,value%6];
+    NSLog(@"%@",_timeText);
+    NSDate *datetime =[_date initWithTimeInterval:self.time*600 sinceDate:_date];
+    NSTimeInterval interval = [datetime timeIntervalSince1970];
+    NSLog(@"%@",_date);
+    NSLog(@"%f",interval);
+    NSString *timestamp = [NSString stringWithFormat:@"%.0f",interval];
+    NSDictionary *dic = @{@"type":@"3",@"data":@"2",@"content":timestamp};
+    [self Httplogin:dic];
+    
+}
+
+
+-(void)Httplogin:(NSDictionary *)msg{
+    
+    
+    AFHTTPSessionManager * manager1 =[AFHTTPSessionManager manager];
+    NSString *aaa1 =@"http://reiniot.shangjinxin.net/api/user/sign-im-login";
+    NSDictionary *dic1 = @{@"persistence_code":[USERDEFAULT objectForKey:@"persistence_code"]
+                           };
+    [manager1 POST:aaa1 parameters:dic1 progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"aadsfadsfadsfasdf");
+        self.dict  = (NSDictionary *)responseObject;
+        AVIMSignature *avSignature = [[AVIMSignature alloc] init];
+        NSNumber *timestampNum = [_dict objectForKey:@"timestamp"];
+        long timestamp = [timestampNum longValue];
+        NSString *nonce = [_dict objectForKey:@"nonce"];
+        NSString *signature = [_dict objectForKey:@"signature"];
+        [avSignature setTimestamp:timestamp];
+        [avSignature setNonce:nonce];
+        [avSignature setSignature:signature];
+        
+        self.sig = avSignature;
+        
+        NSLog(@"talk");
+        // Tom 创建了一个 client，用自己的名字作为 clientId
+        
+        self.client = [[AVIMClient alloc] initWithClientId:[_dict objectForKey:@"client_id"]];
+        self.client.delegate = self;
+        self.client.signatureDataSource = self;
+        
+        [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                // 出错了，可能是网络问题无法连接 LeanCloud 云端，请检查网络之后重试。
+                // 此时聊天服务不可用。
+//                UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"聊天不可用！" message:[error description] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                //[view show];
+                [SVProgressHUD showErrorWithStatus:@"聊天不可用"];
+            } else {
+                // 成功登录，可以开始进行聊天了。
+                NSLog(@"登录成功");
+                [self Httpcreat:msg];
+                
+                
+            }
+        }];
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败%@",error);
+        
+    }];
+    
+    
+}
+
+-(void)Httpcreat:(NSDictionary *)msg{
+    AFHTTPSessionManager * manager =[AFHTTPSessionManager manager];
+    NSString *aaa =@"http://reiniot.shangjinxin.net/api/user/sign-im-conversation";
+    NSDictionary *dic = @{@"persistence_code":[USERDEFAULT objectForKey:@"persistence_code"],
+                          @"imei":@"test00000000001"};
+    [manager POST:aaa parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        self.dict  = (NSDictionary *)responseObject;
+        AVIMSignature *avSignature = [[AVIMSignature alloc] init];
+        NSNumber *timestampNum = [_dict objectForKey:@"timestamp"];
+        long timestamp = [timestampNum longValue];
+        NSString *nonce = [_dict objectForKey:@"nonce"];
+        NSString *signature = [_dict objectForKey:@"signature"];
+        [avSignature setTimestamp:timestamp];
+        [avSignature setNonce:nonce];
+        [avSignature setSignature:signature];
+        
+        self.sig = avSignature;
+        
+        [self.client createConversationWithName: [_dict objectForKey:@"conversation_name"] clientIds:[_dict objectForKey:@"members"] callback:^(AVIMConversation *conversation, NSError *error) {
+            
+            NSString *msgjson = [GLTools dictionaryToJson:msg];
+            
+                [conversation sendMessage:[AVIMTextMessage messageWithText:msgjson attributes:nil] callback:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        NSLog(@"发送成功！");
+                        
+                    }else{
+                        [SVProgressHUD showErrorWithStatus:@"聊天不可用"];
+                    }
+                }];
+                
+            
+            
+            
+        }];
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"失败%@",error);
+        
+    }];
+    
+    
+    //NSLog(@"%@",self.sig);
+    
+    
+    
+}
+
+-(AVIMSignature *)signatureWithClientId:(NSString *)clientId conversationId:(NSString *)conversationId action:(NSString *)action actionOnClientIds:(NSArray *)clientIds{
+    
+    return self.sig;
+    
+}
+
+// 接收消息的回调函数
+-(void)conversation:(AVIMConversation *)conversation didReceiveTypedMessage:(AVIMTypedMessage *)message{
+    NSLog(@"xiaoxi---------------------%@", message.text);
+    
+    if([message.text isEqualToString:@"收到消息"]){
+        
+    }else{
+        NSMutableString *responseString = [NSMutableString stringWithString:message.text];
+        //    NSString *character = nil;
+        //    for (int i = 0; i < responseString.length; i ++) {
+        //        character = [responseString substringWithRange:NSMakeRange(i, 1)];
+        //        if ([character isEqualToString:@"\\"])
+        //            [responseString deleteCharactersInRange:NSMakeRange(i, 1)];
+        //    }
+        [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+        //NSLog(@"%@",responseString);
+        NSDictionary *dic =[GLTools dictionaryWithJsonString:responseString];
+        NSDictionary *msg = [dic objectForKey:@"msg"];
+        NSString *startime = [msg objectForKey:@"starttime"];
+        NSString *endtime = [msg objectForKey:@"endtime"];
+        
+        NSInteger start = [startime integerValue]/1000;
+        NSInteger end = [endtime integerValue]/1000;
+        _minDate = [NSDate dateWithTimeIntervalSince1970:start];
+        _maxDate = [NSDate dateWithTimeIntervalSince1970:end];
+        _datepicker.minimumDate = _minDate;
+        _datepicker.maximumDate = _maxDate;
+        
+    }
+    
+
+    
+}
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSDictionary *dic = @{@"type":@"3",@"data":@"1"};
+    [self Httplogin:dic];
     self.title = @"回放";
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:BColor,NSForegroundColorAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
